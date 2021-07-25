@@ -1,0 +1,94 @@
+@media (max-width: 1680px) {
+    
+}
+@media (max-width: 1368px) {
+    
+}
+@media (max-width: 1024px) {
+    .content {
+        padding: 1.25em;
+    }
+    
+}
+@media (max-width: 992px) {
+    
+}
+@media (max-width: 768px) {
+    
+
+}
+@media (max-width: 575px) {
+    
+}
+
+
+.content {
+    float: left;
+    padding: 1.875em;
+    width: 100%;
+}
+
+.twt-feed.blue-bg {
+    background: #58C9F3;
+}
+.twt-feed {
+    -webkit-border-radius: 4px 4px 0px 0px;
+    color: #FFFFFF;
+    padding: 40px 10px 10px;
+    position: relative;
+    min-height: 170px;
+}
+a, button {
+    text-decoration: none;
+    outline: none !important;
+    color: #000000;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.media-body {
+    background: rgba(251, 29, 88, 0.75);
+    border-radius: 25px;
+    padding-left: 10px;
+    /* width: 100%; */
+}
+.media {
+    /*display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;*/
+}
+.twt-category {
+    display: inline-block;
+    margin-bottom: 11px;
+    margin-top: 10px;
+    width: 100%;
+}
+.weather-category {
+    padding: 15px 0;
+    color: #FFFFFF;
+}
+.weather-category ul li {
+    width: 49%;
+    text-align: center;
+    border-right: 1px solid #e6e6e6;
+    display: inline-block;
+}
+.twt-category ul li {
+    color: #fdfdfd;
+    font-size: 20px;
+}
+.twt-footer, .twt-footer a {
+    color: #FFFFFF;
+    font-size: 20px;
+}
+.twt-footer {
+    padding: 12px 15px;
+}
+.cardSize{
+    height: 380px;
+    overflow:auto ;
+    padding-bottom: 5px;
+}
+.cardSection{
+     /* height: inherit;  */
+}

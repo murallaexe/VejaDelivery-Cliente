@@ -1,0 +1,198 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-12" style="padding-bottom: 7px;">
+                <!--div class="imgMenu">
+                </div-->
+                <div>
+                    <img class="BannerImg" src="../../../assets/img/delivery/Banner PizzaHut.png" alt="">
+                </div>
+            </div>
+            <div class="col-12 WelcomeMenu">
+                <h1>Menú</h1>
+                <p >Pizzas de leña únicas o déjese tentar por nuestras pastas, antipasto, focaccias, ensaladas y platos de Bruschetta. Relájese en el agradable ambiente mientras disfruta de los aromas de los hornos de leña o siéntese al aire libre y tome el sol de Mildura.</p>
+            </div>
+            <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
+                <section class="card bg-warning">
+                    <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/img/delivery/PizzaHut.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
+                        <div class="media">
+                            <div class="media-body">
+                                <h2 class="text-white display-6">Combo #1</h2>
+                                <p class="text-light">Pizza Cansone</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="custom-tab">
+
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button (click)="activarDesc()" class="nav-item nav-link active" id="custom-nav-home-tab">Descripción</button>
+                                    <button (click)="activarCont()" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
+                                    <button (click)="activarPre()" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
+                                </div>
+                            </nav>
+                            <div>
+                                <div *ngIf="activarDescs">
+                                    <p style="color: #ffffff;">Pizzamia contiene 1 pizza tamaño mega-gigante.</p>
+                                </div>
+                                <div *ngIf="activarConts">
+                                    <p style="color: #ffffff;">Pizza mega-gigante de 12 porciones, un refresco 3 litros, 8 aros de cebolla, 8 complemento,  bocadillo de Entrada.</p>
+                                </div>
+                                <div *ngIf="activarPres">
+                                    <p style="color: #ffffff;">Precio L. 1,250.</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn" id="AddCart" >Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
+                <section class="card bg-warning">
+                    <div class="twt-feed blue-bg" style=" background-image: url('../..//../assets/img/delivery/Campero.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
+                        <div class="media">
+                            <div class="media-body">
+                                <h2 class="text-white display-6">combo #2</h2>
+                                <p class="text-light">Pizza mania</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="custom-tab">
+
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button (click)="activarDesc()" class="nav-item nav-link active" id="custom-nav-home-tab">Descripción</button>
+                                    <button (click)="activarCont()" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
+                                    <button (click)="activarPre()" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
+                                </div>
+                            </nav>
+                            <div>
+                                <div *ngIf="activarDescs">
+                                    <p style="color: #ffffff;">Pizzamia contiene 1 pizza tamaño gigante.</p>
+                                </div>
+                                <div *ngIf="activarConts">
+                                    <p style="color: #ffffff;">Pizza gigante de 8 porciones, un refresco 2 litros, 4 aros de cebolla, 4 complementos.</p>
+                                </div>
+                                <div *ngIf="activarPres">
+                                    <p style="color: #ffffff;">Precio L. 350.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="button" class="btn" id="AddCart" >Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div><!-- .row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="modal-content">
+                    <div class="modal-header" id="ModalHeader">
+                        <h3 style="font-weight: 900;">Pizza Hut</h3>
+                    </div>
+                    <div class="modal-body" style="padding:0px 11px">
+                        <div id="OrdensUserModal" class="row">
+                            <div class="ProdCOnte  col-12" style="padding: 0px;margin-top: 12px;">
+                                <div style="height: 375px;"><img src="../../../assets/img/delivery/PizzaHut.jpg" alt="" style="border-top-left-radius: 20px; width: 100%; border-top-right-radius: 20px; height: 374px;"></div>    
+                                    <div>
+                                        <div class="BodyOrdes col-12 displayflex paddinCero">
+                                            <div class="modal-content col-12" style="padding: 12px;">
+                                                <h1>Combo #1
+                                                </h1>
+                                            </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 paddinCero">
+                                            <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
+                                                <form class="displayflex">
+                                                    <span class="col-12">Información personal</span>
+                                                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                                                        <label>Nombre completo</label>
+                                                        <input type="text" class="form-control" id="NameCategory" placeholder="Nombre" value="Edwin">
+                                                    </div>
+                                                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                                                        <label>Numero Teléfono</label>
+                                                        <input type="text" class="form-control" id="NameCategory" placeholder="Teléfono" value="+504-9900-0000">
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label>Descripción</label>
+                                                        <textarea class="form-control" id="Description" placeholder="Ingrese si requiere algo en especial"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
+                                                <form class="displayflex">
+                                                    <span class="col-12">Información pedido</span>
+                                                    <div class="form-group col-12 displayflex">
+                                                        <label class="col-12">Cantidad del producto</label>
+                                                        <input type="number" class="form-control col-5" id="NameCategory" placeholder="Cantidad">
+                                                    </div>
+                                                    <div class="form-group col-12 displayflex">
+                                                        <input class="col-1" type="checkbox" checked="" style="margin-top: 7px;">
+                                                        <label class="col-11">¿Cuenta con otro pedido con nosotros?</label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 paddinCero">
+                                            <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
+                                                <form class="displayflex">
+                                                    <span class="col-12">ubicación </span>
+                                                    <div class="form-group col-12">
+                                                        <label>Dirección para la entrega</label>
+                                                        <input type="text" class="form-control" id="NameCategory" placeholder="Dirección" value="Col. la Kennedy/ calle del comercio.">    
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
+                                                <form class="displayflex">
+                                                    <span class="col-12">Tiempo de envío </span>
+                                                    <div class="form-group col-12">
+                                                        <input type="checkbox" checked="">
+                                                        <label>Entrega inmediata</label>
+                                                        <input placeholder="" type="time" class="form-control col-3" value="00:30">
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label>Fecha</label>
+                                                        <input placeholder="" type="date" class="form-control" value="">
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label>Hora</label>
+                                                        <input placeholder="" type="time" class="form-control" value="">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                                <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
+                                                    <form class="displayflex">
+                                                        <span class="col-12">Forma de pago </span>
+                                                        <div class="form-group col-12 displayflex">
+                                                            <label class="col-12">Elija una forma de pagó.</label>
+                                                            <select class="form-control col-8">
+                                                                <option>Metodo de Pago</option>
+                                                                <option value="1">Efectivo</option>
+                                                                <option value="2">Link de Pago</option>
+                                                                <option value="3">Transferencia</option>
+                                                            </select>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
+                                                <button type="button" class="btn" id="AddCart">Realizar orden</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>

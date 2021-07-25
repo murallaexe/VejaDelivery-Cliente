@@ -1,0 +1,47 @@
+
+
+<aside id="left-panel" *ngIf="ocultarPanelLeft" class="left-panel">
+    <app-panel-left></app-panel-left>
+</aside>
+<div id="right-panel" class="right-panel">
+    <!-- Header-->
+    <app-header (OnOcultarBarra)="ocultarBarraleft($event)"></app-header>
+    <!-- /#header -->
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <div class="row m-0">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="#">App</a></li>
+                                <li class="active">Categorias</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content -->
+    <!-- para categorias-->
+        <app-category></app-category>
+    <!-- /. categorias-->
+    <!-- para compania-->
+        <app-company></app-company>
+    <!-- /. compania-->
+    <!-- para ordenar y comprar productos-->
+        <app-product-company></app-product-company>
+    <!-- /. ordenar y comprar productos-->
+        <app-register></app-register>
+
+    <!-- /.content -->
+    <!-- Footer -->
+    <!-- /.site-footer -->
+</div>

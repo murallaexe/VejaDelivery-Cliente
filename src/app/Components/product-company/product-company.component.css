@@ -1,0 +1,253 @@
+@media (max-width: 1680px){
+    .fadeIn .WelcomeMenu p {
+        font-size: 20px !important;
+        padding: 0px 10px 30px 10px !important;
+    }
+    .WelcomeMenu{
+        width: 80% !important;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 1368px) {
+    .twt-category {
+      margin-bottom: 0; 
+    }
+    .twt-feed {
+      max-height: 155px; 
+    }
+    .twt-feed img {
+        height: 75px;
+        width: 75px; 
+    }
+    .fadeIn .WelcomeMenu p {
+        font-size: 20px !important;
+        padding: 0px 10px 30px 10px !important;
+    }
+    .WelcomeMenu{
+        width: 72% !important;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 1024px){
+    .content {
+        padding: 1.25em;
+    }
+    .fadeIn .WelcomeMenu p {
+        font-size: 20px !important;
+        padding: 0px 10px 30px 10px !important;
+    }
+    .WelcomeMenu{
+        width: 74% !important;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 992px) {
+    .fadeIn .WelcomeMenu p {
+        font-size: 20px !important;
+        padding: 0px 10px 30px 10px !important;
+    }
+    .WelcomeMenu{
+        width: 67% !important;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .fadeIn .WelcomeMenu p {
+        font-size: 15px !important;
+        padding: 0px 10px 30px 10px !important;
+    }
+    .WelcomeMenu{
+        width: 55% !important;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 575px) {
+    .fadeIn .WelcomeMenu p {
+        font-size: 20px !important;
+        padding: 0px 10px 30px 10px !important;
+    }
+    .WelcomeMenu{
+        width: 90% !important;
+        padding-left: 20px;
+    }
+}
+
+    .content {
+        float: left;
+        padding: 1.875em;
+        width: 100%;
+    }
+    .imgMenu {
+        height: 300px;
+        background-image: url('../../../assets/img/delivery/Banner PizzaHut.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+        width: 97%;
+    }
+    .imgMenu:before {
+        content: '';
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+    }
+    .WelcomeMenu{
+        position: fixed;
+        width: 82%;
+    }
+    .BannerImg{
+        width: -webkit-fill-available;
+        height: 300px;
+        border-top-right-radius: 47px;
+        border-top-left-radius: 47px;
+    }
+    .fadeIn .WelcomeMenu h1 {
+        color: #f12c0e !important;
+        font-family: Oswald, sans-serif !important;
+        font-size: 3.75rem;
+        text-align: center;
+        width: 100%;
+    }
+    .fadeIn .WelcomeMenu p {
+        color: white;
+        width: 100%;
+        font-style: italic;
+        margin: 20px auto 0;
+        font-size: 25px;
+        padding: 0px 50px 30px 50px;
+        background: rgba(251, 29, 88, 0.55);
+        border-radius: 25px;
+    }
+    .twt-feed.blue-bg {
+        background: #58C9F3;
+    }
+    .twt-feed {
+        -webkit-border-radius: 4px 4px 0 0;
+        color: #FFFFFF;
+        padding: 40px 10px 10px;
+        position: relative;
+        min-height: 170px; 
+    }
+    .media-body {
+        background: rgba(251, 29, 88, 0.75);
+        border-radius: 25px;
+        padding-left: 10px;
+    }
+    .text-white {
+        color: #fff!important;
+    }
+    .text-light {
+        color: #f8f9fa!important;
+    }
+    .card .card-body {
+        float: left;
+        padding: 1.25em;
+        position: relative;
+        width: 100%;
+    }
+    .custom-tab .nav-tabs > button.active, .custom-tab .nav-tabs > .active > button:focus, .custom-tab .nav-tabs > li.active > button:hover {
+        border-color: transparent transparent;
+        color: #ff2e44;
+        position: relative;
+    }
+    .nav-tabs button.active {
+        color: #555;
+        cursor: default;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+    }
+    .card .nav-tabs button {
+        border-radius: 0;
+        color: #b5bcc2;
+        background-color: #FB1D5A;
+        font-size: 12px;
+        font-weight: 700;
+        padding: .25em .5em;
+        text-transform: uppercase;
+    }
+    a, button {
+        text-decoration: none;
+        outline: none !important;
+        color: #000000;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #495057;
+        background-color: #fff !important;
+        border-color: #dee2e6 #dee2e6 #fff;
+    }
+    .fade {
+        transition: opacity .15s linear;
+    }
+    #AddCart {
+        background: #FB1D5A;
+        color: white;
+        font-weight: 900;
+        border-radius: 25px;
+        margin-left: auto;
+        display: block;
+    }
+    #AddCart:hover {
+        background: #252523;
+    }
+
+
+
+    
+    /*Card generate Orders*/
+.ProdCOnte{
+    padding: 0px; 
+    margin-Top: 12px;
+}
+.ProdCOnte .DivSegGenera{
+    height: 300px;
+    background-image: url(../../../assets/img/delivery/PizzaHut.jpg);
+    background-attachment: fixed;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    margin: 0px 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.ProdCOnte .DivSegGenera img{
+    border-top-left-radius: 20px; 
+    width: 100%; 
+    border-top-right-radius: 20px;
+    padding:0px 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;  
+}
+.modal-content .displayflex span {
+    font-size: xx-large;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: rgba(rgba(19, 16, 16, 0.877), green, blue, alpha);
+}
+.ProdCOnte .BodyOrdes h1 {
+    color: #FB1D5A;
+    font-weight: 800;
+}
+  /*Fin Card generate Orders*/
+.displayflex{
+    display: flex;
+    padding: 0px 15px;
+    flex-wrap: wrap; 
+}
+.paddinCero{padding: 0px;}
+.modal-header {
+    background-color: #FB1D5A;
+    color: white;
+}

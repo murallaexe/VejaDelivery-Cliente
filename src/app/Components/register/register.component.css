@@ -1,0 +1,116 @@
+@media (max-width: 1680px) {
+    
+}
+@media (max-width: 1368px) {
+    .ov-h{
+        overflow:auto !important;
+    }
+}
+@media (max-width: 1024px) {
+    .content {
+        padding: 1.25em;
+    }
+    .ov-h{
+        overflow:auto !important;
+    }    
+}
+@media (max-width: 992px) {
+    .ov-h{
+        overflow:auto !important;
+    }
+}
+@media (max-width: 768px) {
+    .ov-h{
+        overflow:auto !important;
+    }
+}
+@media (max-width: 575px) {
+    .ov-h{
+        overflow:auto !important;
+    }
+}
+
+    .content {
+        float: left;
+        padding: 1.875em;
+        width: 100%;
+    }
+
+.order-table {
+    position: relative;
+}
+.ov-h {
+    overflow: hidden;
+}
+.order-table:before {
+    left: -1px;
+}
+.order-table:after, .order-table:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 37px;
+    width: 10px;
+    background: #e8e9ef;
+}
+.order-table:after {
+    right: -1px;
+}
+.table-stats table th, .table-stats table td {
+    border: none;
+    border-bottom: 1px solid #e8e9ef;
+    color: #868e96;
+    font-size: 12px;
+    font-weight: normal;
+    padding: .75em 1.25em;
+    text-transform: uppercase;
+}
+.order-table tr th {
+    background: #e8e9ef;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+.table-stats table {
+    font-family: 'Open Sans';
+}
+.table-stats table td {
+    color: #343a40;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.order-table .badge-complete {
+    background: #00c292;
+}
+.order-table .badge {
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+.order-table .badge-pending {
+    background: #fb9678;
+}
+
+
+
+
