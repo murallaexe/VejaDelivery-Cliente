@@ -2663,3 +2663,20 @@ footer.site-footer {
 .float-right {
   float: right!important;
 }
+.btn-White-Edit{
+  background-color: white;
+  font-size: xx-large;
+  border-radius: 15px;
+  border: 2px solid #ff2e44;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: 32px;
+  display: flex;
+  color: #FB1D5A;
+  font-weight: 600;
+}
+.btn-White-Edit:hover,.btn-White-Edit:focus{
+  background-color: #ff2e44;
+  border: 2px solid #FB1D5A;
+  color: white;
+}

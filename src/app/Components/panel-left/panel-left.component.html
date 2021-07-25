@@ -3,30 +3,37 @@
         <ul class="nav navbar-nav">
             <li class="menu-title">Componentes</li><!-- /.menu-title -->
             <li class="menu-item-has-children dropdown">
-                <a href="Category.html" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <fa-icon [icon]="faSitemap"></fa-icon> Categorias</a>
-                <ul class="sub-menu children dropdown-menu-mod">                            
-                    <li><fa-icon [icon]="faShoppingBag"></fa-icon> <a class="li-sub" href="Category.html">Supermercado</a></li>
-                    <li><fa-icon [icon]="faCut"></fa-icon> <a class="li-sub" href="Category.html">Restaurantes</a></li>
-                    <li><fa-icon [icon]="faIndustry"></fa-icon> <a class="li-sub" href="Category.html">Ferretería</a></li>
-                    <li><fa-icon [icon]="faGlassCheers"></fa-icon> <a class="li-sub" href="Category.html">Licorería</a></li>
-                    <li><fa-icon [icon]="faCar"></fa-icon> <a class="li-sub" href="Category.html">Auto Repuestos</a></li>
-                    <li><fa-icon [icon]="faCoffee"></fa-icon> <a class="li-sub" href="Category.html">Cafetería</a></li>
-                    <li><fa-icon [icon]="faHeartbeat"></fa-icon> <a class="li-sub" href="Category.html">Farmacia</a></li>
-                    <li><fa-icon [icon]="faLaptop"></fa-icon> <a class="li-sub" href="Category.html">Tecnología</a></li>
-                    <li><fa-icon [icon]="faPlus"></fa-icon> <a class="li-sub" href="Category.html">Más</a></li>
+                <button class="dropdown-toggle btn" (click)="desplegar(1)"><fa-icon [icon]="faSitemap"></fa-icon> Categorias</button>
+                <!-- <a href="Category.html" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a> -->
+                <ul class="sub-menu children dropdown-menu-mod" *ngIf="leftCategory">                            
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faShoppingBag"></fa-icon> Supermercado</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faCut"></fa-icon> Restaurantes</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faIndustry"></fa-icon> Ferretería</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faGlassCheers"></fa-icon> Licorería</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faCar"></fa-icon> Repuestos</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faCoffee"></fa-icon> Cafetería</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faHeartbeat"></fa-icon> Farmacia</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faLaptop"></fa-icon> Tecnología</button></li>
+                    <li (click)="categoryBarraleft()"><button class="btn li-sub"><fa-icon [icon]="faPlus"></fa-icon> Más</button></li>
                 </ul>
             </li>
-            <li>
-                <a href="Company.html"> <fa-icon [icon]="faSuitcase"></fa-icon> Empresas</a>
+            <li (click)="companyBarraleft()">
+                <button class="btn">
+                    <fa-icon [icon]="faSuitcase"></fa-icon> Empresas
+                </button>
+                <!-- <a href="Company.html"> </a> -->
             </li>
-            <li>
-                <a href="Discount.html"> <fa-icon [icon]="faHandshake"></fa-icon> Descuentos</a>
+            <li><button class="btn">
+                <fa-icon [icon]="faHandshake"></fa-icon> Descuentos
+            </button>
+                <!-- <a href="Discount.html"> </a> -->
             </li>
             <li class="menu-item-has-children dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><fa-icon [icon]="faThList"></fa-icon> Registros</a>
-                <ul class="sub-menu children dropdown-menu-mod">
-                    <li><fa-icon [icon]="faShoppingBag"></fa-icon> <button (click)="Register(1)" class="btn">Compras</button></li>
-                    <li><fa-icon [icon]="faStar"></fa-icon> <button (click)="Register(2)" class="btn">Estados Productos</button></li>
+                <button class="dropdown-toggle btn" (click)="desplegar(2)"><fa-icon [icon]="faThList"></fa-icon> Registros</button>
+                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a> -->
+                <ul class="sub-menu children dropdown-menu-mod" *ngIf="leftRegister">
+                    <li><button (click)="Register(1)" class="btn"><fa-icon [icon]="faShoppingBag"></fa-icon> Compras</button></li>
+                    <li><button (click)="Register(2)" class="btn"><fa-icon [icon]="faStar"></fa-icon> Estados Productos</button></li>
                 </ul>
             </li>
         </ul>

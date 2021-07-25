@@ -9,8 +9,13 @@ import { faSitemap, faCut , faShoppingBag, faIndustry,faGlassCheers, faCar, faCo
 export class PanelLeftComponent implements OnInit {
   selectRegister:string="";
   @Output() onSelectRegister = new EventEmitter();
+  selectCategory:string="";
+  @Output() onSelectCategory = new EventEmitter();
+  selectCompany:string="";
+  @Output() onSelectCompany = new EventEmitter();
   constructor() { }
-
+  leftCategory:boolean=true;
+  leftRegister:boolean=true;
   ngOnInit(): void {
   }
   
@@ -36,5 +41,28 @@ export class PanelLeftComponent implements OnInit {
       this.selectRegister="RegisterList";
     }
     this.onSelectRegister.emit(this.selectRegister);
+  }
+  desplegar(envent:any){
+    if(envent==1){
+      if(this.leftCategory==false){
+        this.leftCategory=true;
+      }else{
+        this.leftCategory=false;
+      }
+    }else{
+      if(this.leftRegister==false){
+        this.leftRegister=true;
+      }else{
+        this.leftRegister=false;
+      }
+    }
+  }
+  categoryBarraleft(){
+    this.selectCategory="Category";
+    this.onSelectRegister.emit(this.selectCategory);
+  }
+  companyBarraleft(){
+    this.selectCategory="Company";
+    this.onSelectRegister.emit(this.selectCategory);
   }
 }
