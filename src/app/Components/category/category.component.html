@@ -1,15 +1,16 @@
 <div class="content">
     <div class="animated fadeIn">
         <div class="row">
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size">
-                <div class="card bg-warning" style="padding: 0px 12px 0px 12px;">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
+                <div class="card bg-white" style="padding: 0px 12px 0px 12px;">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faUtensils"></fa-icon>
                     </div>
                     <div class="card-header user-header alt bg-dark">
                         <div class="media">
                             <div class="media-body">
-                                <a href="Company.html"><h2 class="text-light display-6">Restaurantes</h2></a>
+                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Restaurantes</h2></button>
+                                <!-- <a href=""><h2 class="text-light display-6">Restaurantes</h2></a> -->
                             </div>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
                 <div class="card bg-danger" style="padding: 0px 12px 0px 12px;">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faShoppingBag"></fa-icon>
@@ -41,7 +42,7 @@
                     <div class="card-header user-header alt bg-dark">
                         <div class="media">
                             <div class="media-body">
-                                <a href="Company.html"><h2 class="text-light display-6">Supermercado</h2></a>
+                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Supermercado</h2></button>
                             </div>
                         </div>
                     </div>
@@ -65,15 +66,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size">
-                <div class="card bg-warning" style="padding: 0px 12px 0px 12px;">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
+                <div class="card bg-white" style="padding: 0px 12px 0px 12px;">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faIndustry"></fa-icon>
                     </div>
                     <div class="card-header user-header alt bg-dark">
                         <div class="media">
                             <div class="media-body">
-                                <a href="Company.html"><h2 class="text-light display-6">Ferretería</h2></a>
+                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Ferretería</h2></button>
                             </div>
                         </div>
                     </div>
@@ -97,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
                 <div class="card bg-danger" style="padding: 0px 12px 0px 12px;">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faGlassCheers"></fa-icon>
@@ -105,7 +106,7 @@
                     <div class="card-header user-header alt bg-dark">
                         <div class="media">
                             <div class="media-body">
-                                <a href="Company.html"><h2 class="text-light display-6">Licorería</h2></a>
+                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Licorería</h2></button>
                             </div>
                         </div>
                     </div>

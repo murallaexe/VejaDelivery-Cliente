@@ -45,7 +45,7 @@
 .navbar .navbar-nav li.menu-item-has-children a {
     line-height: 30px;
 }
-.navbar .navbar-nav li > a {
+.navbar .navbar-nav li > a,.navbar-nav li > button {
     background: none !important;
     color: #FFFFFF;
     display: inline-block;
@@ -56,7 +56,12 @@
     width: 100%;
     text-decoration: none;
 }
-.navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
+.navbar-nav li > button {
+    text-align: left ;
+    padding-left: 25px;
+    padding-top: 0px;
+}
+.navbar .navbar-nav li > a:hover,.navbar-nav li > button:hover, .navbar .navbar-nav li > a:hover .menu-icon {
   color: #000000; }
 .navbar .navbar-nav li > a .menu-icon {
     color: #FFFFFF;

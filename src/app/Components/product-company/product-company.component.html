@@ -1,6 +1,9 @@
 <div class="content">
     <div class="animated fadeIn">
-        <div class="row">
+        <div class="col-12">
+            <button class="btn btn-White-Edit" *ngIf="selectProduct=='Combos'" (click)="irAtrasW()">Regresar a empresas</button>
+        </div>
+        <div class="row" *ngIf="selectProduct=='Combos'">
             <div class="col-12" style="padding-bottom: 7px;">
                 <!--div class="imgMenu">
                 </div-->
@@ -13,7 +16,7 @@
                 <p >Pizzas de leña únicas o déjese tentar por nuestras pastas, antipasto, focaccias, ensaladas y platos de Bruschetta. Relájese en el agradable ambiente mientras disfruta de los aromas de los hornos de leña o siéntese al aire libre y tome el sol de Mildura.</p>
             </div>
             <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
-                <section class="card bg-warning">
+                <section class="card bg-white">
                     <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/img/delivery/PizzaHut.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
                         <div class="media">
                             <div class="media-body">
@@ -28,31 +31,31 @@
 
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button (click)="activarDesc()" class="nav-item nav-link active" id="custom-nav-home-tab">Descripción</button>
-                                    <button (click)="activarCont()" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
-                                    <button (click)="activarPre()" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
+                                    <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link" id="custom-nav-home-tab">Descripción</button>
+                                    <button (click)="activarCont()" [ngClass]="{'active': activarConts}" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
+                                    <button (click)="activarPre()" [ngClass]="{'active': activarPres}" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
                                 </div>
                             </nav>
                             <div>
                                 <div *ngIf="activarDescs">
-                                    <p style="color: #ffffff;">Pizzamia contiene 1 pizza tamaño mega-gigante.</p>
+                                    <p style="color: #FB1D5A;">Pizzamia contiene 1 pizza tamaño mega-gigante.</p>
                                 </div>
                                 <div *ngIf="activarConts">
-                                    <p style="color: #ffffff;">Pizza mega-gigante de 12 porciones, un refresco 3 litros, 8 aros de cebolla, 8 complemento,  bocadillo de Entrada.</p>
+                                    <p style="color: #FB1D5A;">Pizza mega-gigante de 12 porciones, un refresco 3 litros, 8 aros de cebolla, 8 complemento,  bocadillo de Entrada.</p>
                                 </div>
                                 <div *ngIf="activarPres">
-                                    <p style="color: #ffffff;">Precio L. 1,250.</p>
+                                    <p style="color: #FB1D5A;">Precio L. 1,250.</p>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="button" class="btn" id="AddCart" >Comprar</button>
+                                <button type="button" class="btn" id="AddCart" (click)='comprar()'>Comprar</button>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
             <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
-                <section class="card bg-warning">
+                <section class="card bg-white">
                     <div class="twt-feed blue-bg" style=" background-image: url('../..//../assets/img/delivery/Campero.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
                         <div class="media">
                             <div class="media-body">
@@ -67,32 +70,68 @@
 
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button (click)="activarDesc()" class="nav-item nav-link active" id="custom-nav-home-tab">Descripción</button>
-                                    <button (click)="activarCont()" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
-                                    <button (click)="activarPre()" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
+                                    <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link active" id="custom-nav-home-tab">Descripción</button>
+                                    <button (click)="activarCont()" [ngClass]="{'active': activarConts}" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
+                                    <button (click)="activarPre()" [ngClass]="{'active': activarPres}" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
                                 </div>
                             </nav>
                             <div>
                                 <div *ngIf="activarDescs">
-                                    <p style="color: #ffffff;">Pizzamia contiene 1 pizza tamaño gigante.</p>
+                                    <p style="color: #FB1D5A;">Pizzamia contiene 1 pizza tamaño gigante.</p>
                                 </div>
                                 <div *ngIf="activarConts">
-                                    <p style="color: #ffffff;">Pizza gigante de 8 porciones, un refresco 2 litros, 4 aros de cebolla, 4 complementos.</p>
+                                    <p style="color: #FB1D5A;">Pizza gigante de 8 porciones, un refresco 2 litros, 4 aros de cebolla, 4 complementos.</p>
                                 </div>
                                 <div *ngIf="activarPres">
-                                    <p style="color: #ffffff;">Precio L. 350.</p>
+                                    <p style="color: #FB1D5A;">Precio L. 350.</p>
                                 </div>
                             </div>
                             
                             <div class="col-12">
-                                <button type="button" class="btn" id="AddCart" >Comprar</button>
+                                <button type="button" class="btn" id="AddCart" (click)='comprar()'>Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
+                <section class="card bg-white">
+                    <div class="twt-feed blue-bg" style=" background-image: url('../..//../assets/img/delivery/Supermercados-la-Colonia.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
+                        <div class="media">
+                            <div class="media-body">
+                                <h2 class="text-white display-6">Listado de productos</h2>
+                                <p class="text-light">Sup. Colonia</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="custom-tab">
+
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link active" id="custom-nav-home-tab">Listado</button>
+                                </div>
+                            </nav>
+                            <div>
+                                <div *ngIf="activarDescs">
+                                    <!-- <p style="color: #FB1D5A;">Click</p> -->
+                                    <textarea name="" id="" cols="30" rows="10" style="width: 100%;margin: 10px 5px;" placeholder="Genere su lista"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="button" class="btn" id="AddCart" (click)='comprar()'>Realizar Comprar</button>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
         </div><!-- .row -->
-        <div class="row">
+        <div class="row" *ngIf="selectProduct=='genereOrders'">
+            <div class="col-12">
+                <button class="btn btn-White-Edit" (click)="irAtras()">Regresar a Productos</button>
+            </div>
             <div class="col-12">
                 <div class="modal-content">
                     <div class="modal-header" id="ModalHeader">

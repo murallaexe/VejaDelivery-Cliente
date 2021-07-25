@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faSitemap, faCut , faShoppingBag, faIndustry,faGlassCheers, faCar, faCoffee,faHeartbeat,faLaptop,faPlus, faSuitcase,faHandshake, faThList, faStar} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,7 +7,8 @@ import { faSitemap, faCut , faShoppingBag, faIndustry,faGlassCheers, faCar, faCo
   styleUrls: ['./panel-left.component.css']
 })
 export class PanelLeftComponent implements OnInit {
-
+  selectRegister:string="";
+  @Output() onSelectRegister = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -27,4 +28,13 @@ export class PanelLeftComponent implements OnInit {
   faHandshake =faHandshake;
   faThList = faThList;
   faStar = faStar;
+  Register(envent:any){
+    console.log("selecciono en resgitro: ",envent);
+    if(envent==1){
+      this.selectRegister="RegisterCompras";
+    }else{
+      this.selectRegister="RegisterList";
+    }
+    this.onSelectRegister.emit(this.selectRegister);
+  }
 }

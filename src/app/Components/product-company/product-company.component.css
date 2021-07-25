@@ -157,6 +157,7 @@
         border-color: transparent transparent;
         color: #ff2e44;
         position: relative;
+        border: 1px solid;
     }
     .nav-tabs button.active {
         color: #555;
@@ -249,5 +250,28 @@
 .paddinCero{padding: 0px;}
 .modal-header {
     background-color: #FB1D5A;
+    color: white;
+}
+.bg-white{
+    background-color: #F7F7F7!important;
+    border: 1px solid #dc3545;
+}
+.nav-tabs {
+    border-bottom: 1px solid #ff2e44;
+}
+.btn-White-Edit{
+    background-color: white;
+    font-size: xx-large;
+    border-radius: 15px;
+    border: 2px solid #ff2e44;
+    margin-bottom: 20px;
+    margin-left: auto;
+    display: flex;
+    color: #FB1D5A;
+    font-weight: 600;
+}
+.btn-White-Edit:hover,.btn-White-Edit:focus{
+    background-color: #ff2e44;
+    border: 2px solid #FB1D5A;
     color: white;
 }

@@ -1,6 +1,6 @@
 <div class="content">
     <div class="row">
-        <div class="col-lg-12" style="padding: 0px 15px;">
+        <div class="col-lg-12" *ngIf="selectRegister=='RegisterCompras'"  style="padding: 0px 15px;">
             <div class="card">
                 <div class="card-header">
                     <strong class="card-title">Lista estados de pedidos</strong>
@@ -105,7 +105,7 @@
                 </div> <!-- /.table-stats -->
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12" *ngIf="selectRegister=='RegisterList'">
             <div class="card">
                 <div class="card-header">
                     <strong class="card-title">Lista de compras</strong>

@@ -1,7 +1,7 @@
 
 
 <aside id="left-panel" *ngIf="ocultarPanelLeft" class="left-panel">
-    <app-panel-left></app-panel-left>
+    <app-panel-left (onSelectRegister)="estadoComponentVisual($event)"></app-panel-left>
 </aside>
 <div id="right-panel" class="right-panel">
     <!-- Header-->
@@ -29,17 +29,20 @@
             </div>
         </div>
     </div>
+    <div class="col-12">
+        <button class="btn btn-White-Edit" >Regresar a Categorias</button>
+    </div>
     <!-- Content -->
     <!-- para categorias-->
-        <app-category></app-category>
+        <app-category (onSelectCategory)="estadoComponentVisual($event)" *ngIf="stadeComponents=='Category'"></app-category>
     <!-- /. categorias-->
     <!-- para compania-->
-        <app-company></app-company>
+        <app-company (onSelectCompany)="estadoComponentVisual($event)" *ngIf="stadeComponents=='Company'"></app-company>
     <!-- /. compania-->
     <!-- para ordenar y comprar productos-->
-        <app-product-company></app-product-company>
+        <app-product-company #Product (onProductoSelection)="estadoComponentVisual($event)" *ngIf="stadeComponents=='productCompany'"></app-product-company>
     <!-- /. ordenar y comprar productos-->
-        <app-register></app-register>
+        <app-register #regiter *ngIf="stadeComponents=='RegisterCompras'|| stadeComponents=='RegisterList'"></app-register>
 
     <!-- /.content -->
     <!-- Footer -->

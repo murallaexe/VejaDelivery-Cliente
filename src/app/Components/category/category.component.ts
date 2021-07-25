@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faUser,faUtensils,faTasks,faShoppingBag,faIndustry,faGlassCheers } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook,faTwitter,faInstagram,faPinterest} from '@fortawesome/free-brands-svg-icons'
 @Component({
@@ -7,7 +7,8 @@ import { faFacebook,faTwitter,faInstagram,faPinterest} from '@fortawesome/free-b
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
+  selectCategory:string = "";
+  @Output() onSelectCategory = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -22,4 +23,9 @@ export class CategoryComponent implements OnInit {
   faShoppingBag=faShoppingBag;
   faIndustry=faIndustry;
   faGlassCheers=faGlassCheers;
+  SelectCategory(){
+    this.selectCategory= 'Company';
+    console.log("Select category:", this.selectCategory);
+    this.onSelectCategory.emit(this.selectCategory);
+  }
 }
