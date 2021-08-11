@@ -1,132 +1,101 @@
-<div class="content">
-    <div class="animated fadeIn">
+<div class="content" *ngIf="ocultardatas">
+    <div class="animated fadeIn"  *ngFor="let Compania of productosArray">
         <div class="col-12">
             <button class="btn btn-White-Edit" *ngIf="selectProduct=='Combos'" (click)="irAtrasW()">Regresar a empresas</button>
         </div>
         <div class="row" *ngIf="selectProduct=='Combos'">
             <div class="col-12" style="padding-bottom: 7px;">
-                <!--div class="imgMenu">
-                </div-->
                 <div>
-                    <img class="BannerImg" src="../../../assets/img/delivery/Banner PizzaHut.png" alt="">
+                    <img class="BannerImg" src="../../../assets/{{Compania.imagenBanner}}" alt="">
                 </div>
             </div>
             <div class="col-12 WelcomeMenu">
-                <h1>Menú</h1>
-                <p >Pizzas de leña únicas o déjese tentar por nuestras pastas, antipasto, focaccias, ensaladas y platos de Bruschetta. Relájese en el agradable ambiente mientras disfruta de los aromas de los hornos de leña o siéntese al aire libre y tome el sol de Mildura.</p>
+                <h1>Productos</h1>
+                <p>{{Compania.LemaEmpresa}}</p>
             </div>
-            <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
-                <section class="card bg-white">
-                    <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/img/delivery/PizzaHut.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
-                        <div class="media">
-                            <div class="media-body">
-                                <h2 class="text-white display-6">Combo #1</h2>
-                                <p class="text-light">Pizza Cansone</p>
+            <div class="row" *ngIf="Compania.tipoEmpresa=='Productos'">
+                <!-- productos-->
+                <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl" *ngFor="let producto of Compania.productos">
+                    <section class="card bg-white">
+                        <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/{{producto.imagenProducto}}'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="text-white display-6">{{producto.nombreProducto}}</h2>
+                                    <p class="text-light">{{producto.marcaProducto}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="card-body">
-                        <div class="custom-tab">
+                        
+                        <div class="card-body">
+                            <div class="custom-tab">
 
-                            <nav>
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link" id="custom-nav-home-tab">Descripción</button>
-                                    <button (click)="activarCont()" [ngClass]="{'active': activarConts}" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
-                                    <button (click)="activarPre()" [ngClass]="{'active': activarPres}" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link" id="custom-nav-home-tab">Descripción</button>
+                                        
+                                        <button (click)="activarPre()" [ngClass]="{'active': activarPres}" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
+                                    </div>
+                                </nav>
+                                <div>
+                                    <div *ngIf="activarDescs">
+                                        <p style="color: #FB1D5A;">{{producto.detalleProducto}}</p>
+                                    </div>
+                                    <div *ngIf="activarPres">
+                                        <p style="color: #FB1D5A;">{{producto.precio}}</p>
+                                    </div>
                                 </div>
-                            </nav>
-                            <div>
-                                <div *ngIf="activarDescs">
-                                    <p style="color: #FB1D5A;">Pizzamia contiene 1 pizza tamaño mega-gigante.</p>
+                                <div class="col-12">
+                                    <button type="button" class="btn" id="AddCart" (click)='ordenarYa(producto._id,producto)'>Realizar orden</button>
                                 </div>
-                                <div *ngIf="activarConts">
-                                    <p style="color: #FB1D5A;">Pizza mega-gigante de 12 porciones, un refresco 3 litros, 8 aros de cebolla, 8 complemento,  bocadillo de Entrada.</p>
-                                </div>
-                                <div *ngIf="activarPres">
-                                    <p style="color: #FB1D5A;">Precio L. 1,250.</p>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="button" class="btn" id="AddCart" (click)='comprar()'>Comprar</button>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
-                <section class="card bg-white">
-                    <div class="twt-feed blue-bg" style=" background-image: url('../..//../assets/img/delivery/Campero.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
-                        <div class="media">
-                            <div class="media-body">
-                                <h2 class="text-white display-6">combo #2</h2>
-                                <p class="text-light">Pizza mania</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-body">
-                        <div class="custom-tab">
+                    </section>
+                </div>
 
-                            <nav>
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link active" id="custom-nav-home-tab">Descripción</button>
-                                    <button (click)="activarCont()" [ngClass]="{'active': activarConts}" class="nav-item nav-link" id="custom-nav-profile-tab">Contenido</button>
-                                    <button (click)="activarPre()" [ngClass]="{'active': activarPres}" class="nav-item nav-link" id="custom-nav-contact-tab">Precio</button>
-                                </div>
-                            </nav>
-                            <div>
-                                <div *ngIf="activarDescs">
-                                    <p style="color: #FB1D5A;">Pizzamia contiene 1 pizza tamaño gigante.</p>
-                                </div>
-                                <div *ngIf="activarConts">
-                                    <p style="color: #FB1D5A;">Pizza gigante de 8 porciones, un refresco 2 litros, 4 aros de cebolla, 4 complementos.</p>
-                                </div>
-                                <div *ngIf="activarPres">
-                                    <p style="color: #FB1D5A;">Precio L. 350.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12">
-                                <button type="button" class="btn" id="AddCart" (click)='comprar()'>Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl">
-                <section class="card bg-white">
-                    <div class="twt-feed blue-bg" style=" background-image: url('../..//../assets/img/delivery/Supermercados-la-Colonia.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
-                        <div class="media">
-                            <div class="media-body">
-                                <h2 class="text-white display-6">Listado de productos</h2>
-                                <p class="text-light">Sup. Colonia</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-body">
-                        <div class="custom-tab">
 
-                            <nav>
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link active" id="custom-nav-home-tab">Listado</button>
+            </div>
+
+            <div class="row" *ngIf="Compania.tipoEmpresa=='Lista'">
+
+
+                <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl" *ngFor="let producto of Compania.productos">
+                    <section class="card bg-white">
+                        <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/{{producto.imagenProducto}}'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h2 class="text-white display-6">{{producto.nombreProducto}}</h2>
+                                    <h6 class="text-light">{{productosArray.nombreEmpresa}}</h6>
                                 </div>
-                            </nav>
-                            <div>
-                                <div *ngIf="activarDescs">
-                                    <!-- <p style="color: #FB1D5A;">Click</p> -->
-                                    <textarea name="" id="" cols="30" rows="10" style="width: 100%;margin: 10px 5px;" placeholder="Genere su lista"></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12">
-                                <button type="button" class="btn" id="AddCart" (click)='comprar()'>Realizar Comprar</button>
                             </div>
                         </div>
-                    </div>
-                </section>
+                        
+                        <div class="card-body">
+                            <div class="custom-tab">
+    
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link active" id="custom-nav-home-tab">Listado</button>
+                                    </div>
+                                </nav>
+                                <div>
+                                    <div *ngIf="activarDescs">
+                                        <!-- <p style="color: #FB1D5A;">Click</p> -->
+                                        <textarea name="" id="" cols="30" rows="10" style="width: 100%;margin: 10px 5px;" placeholder="Genere su lista"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button type="button" class="btn" id="AddCart" (click)='ordenarYa(producto._id,producto)'>Realizar orden </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
             </div>
+            
+
         </div><!-- .row -->
         <div class="row" *ngIf="selectProduct=='genereOrders'">
             <div class="col-12">
@@ -135,33 +104,35 @@
             <div class="col-12">
                 <div class="modal-content">
                     <div class="modal-header" id="ModalHeader">
-                        <h3 style="font-weight: 900;">Pizza Hut</h3>
+                        <h3 style="font-weight: 900;">{{nombreEmpresa}}</h3>
                     </div>
                     <div class="modal-body" style="padding:0px 11px">
                         <div id="OrdensUserModal" class="row">
                             <div class="ProdCOnte  col-12" style="padding: 0px;margin-top: 12px;">
-                                <div style="height: 375px;"><img src="../../../assets/img/delivery/PizzaHut.jpg" alt="" style="border-top-left-radius: 20px; width: 100%; border-top-right-radius: 20px; height: 374px;"></div>    
+                                <div style="height: 375px;">
+                                    <img src="../../../assets/img/delivery/PizzaHut/PizzaHut.jpg" alt="" style="border-top-left-radius: 20px; width: 100%; border-top-right-radius: 20px; height: 374px;">
+                                </div>    
                                     <div>
                                         <div class="BodyOrdes col-12 displayflex paddinCero">
                                             <div class="modal-content col-12" style="padding: 12px;">
-                                                <h1>Combo #1
+                                                <h1>{{nombreProducto}}
                                                 </h1>
                                             </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 paddinCero">
                                             <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
-                                                <form class="displayflex">
+                                                <form class="displayflex" [formGroup]="formInfoPersonal">
                                                     <span class="col-12">Información personal</span>
                                                     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                                         <label>Nombre completo</label>
-                                                        <input type="text" class="form-control" id="NameCategory" placeholder="Nombre" value="Edwin">
+                                                        <input type="text" [attr.disabled]="ocultarnombre==false" formControlName="nombre" class="form-control" id="NameCategory" placeholder="Nombre">
                                                     </div>
                                                     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                                         <label>Numero Teléfono</label>
-                                                        <input type="text" class="form-control" id="NameCategory" placeholder="Teléfono" value="+504-9900-0000">
+                                                        <input type="text" formControlName="numTelefono" class="form-control" id="NameCategory" placeholder="Teléfono" value="+504-9900-0000">
                                                     </div>
                                                     <div class="form-group col-12">
                                                         <label>Descripción</label>
-                                                        <textarea class="form-control" id="Description" placeholder="Ingrese si requiere algo en especial"></textarea>
+                                                        <textarea formControlName="DescripcionPedido" class="form-control" id="Description" placeholder="Ingrese si requiere algo en especial"></textarea>
                                                     </div>
                                                 </form>
                                             </div>
@@ -170,7 +141,7 @@
                                                     <span class="col-12">Información pedido</span>
                                                     <div class="form-group col-12 displayflex">
                                                         <label class="col-12">Cantidad del producto</label>
-                                                        <input type="number" class="form-control col-5" id="NameCategory" placeholder="Cantidad">
+                                                        <input [(ngModel)]="cantidadProducto" name="cantidadProducto" type="number" (change)="ValidButton()" class="form-control col-5" id="NameCategory" placeholder="Cantidad">
                                                     </div>
                                                     <div class="form-group col-12 displayflex">
                                                         <input class="col-1" type="checkbox" checked="" style="margin-top: 7px;">
@@ -185,25 +156,38 @@
                                                     <span class="col-12">ubicación </span>
                                                     <div class="form-group col-12">
                                                         <label>Dirección para la entrega</label>
-                                                        <input type="text" class="form-control" id="NameCategory" placeholder="Dirección" value="Col. la Kennedy/ calle del comercio.">    
+                                                        <input [(ngModel)]="direccion" name="direccion" type="text" class="form-control" id="NameCategory" placeholder="Dirección">    
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
-                                                <form class="displayflex">
+                                                
+                                                <form class="displayflex" [formGroup]="formHora">
                                                     <span class="col-12">Tiempo de envío </span>
-                                                    <div class="form-group col-12">
-                                                        <input type="checkbox" checked="">
+                                                    <button class="col-6 btn btn-info2 " (click)="displayEntrega(1);ValidButton()">Inmediata</button>
+                                                    <button class="col-6 btn btn-info2 " (click)="displayEntrega(2)">Programada</button>
+                                                    <div class="form-group">
+                                                        <span class="errorSpan" *ngIf="entregaProgramada==false &&entregainmediata==false ">Seleccione el tiempo de envío.</span>
+                                                    </div>
+                                                    <div class="form-group col-12" *ngIf="entregainmediata">
                                                         <label>Entrega inmediata</label>
-                                                        <input placeholder="" type="time" class="form-control col-3" value="00:30">
+                                                        <input placeholder="" disabled type="text"  class="form-control col-3" value="+30 min">
                                                     </div>
-                                                    <div class="form-group col-6">
+                                                    <div class="form-group" *ngIf="entregainmediata">
+                                                        <span>Estará habitilada en 30 min</span>
+                                                    </div>
+                                                    <div class="form-group col-6" *ngIf="entregaProgramada" >
                                                         <label>Fecha</label>
-                                                        <input placeholder="" type="date" class="form-control" value="">
+                                                        <input placeholder="" (change)="validFechaF();ValidButton()" formControlName="fecha"  type="date" class="form-control" value="">
+                                                        <span class="errorSpan" *ngIf="validFecha==false">{{textErrorFecha}}</span>
                                                     </div>
-                                                    <div class="form-group col-6">
+                                                    <div class="form-group col-6" *ngIf="entregaProgramada">
                                                         <label>Hora</label>
-                                                        <input placeholder="" type="time" class="form-control" value="">
+                                                        <input placeholder="" (change)="validHoraF();ValidButton()" formControlName="hora" type="time" class="form-control" value="">
+                                                        <span class="errorSpan" *ngIf="validHora==false">{{textErrorHora}}</span>
+                                                    </div>
+                                                    <div class="form-group"  *ngIf="entregaProgramada">
+                                                        <span>Estará habitilada en 1 hora minima</span>
                                                     </div>
                                                 </form>
                                             </div>
@@ -212,18 +196,22 @@
                                                         <span class="col-12">Forma de pago </span>
                                                         <div class="form-group col-12 displayflex">
                                                             <label class="col-12">Elija una forma de pagó.</label>
-                                                            <select class="form-control col-8">
-                                                                <option>Metodo de Pago</option>
-                                                                <option value="1">Efectivo</option>
-                                                                <option value="2">Link de Pago</option>
-                                                                <option value="3">Transferencia</option>
+                                                            <select class="form-control col-8" [(ngModel)]="metodoPago" name="pagos" (change)="SelectPagos(1);ValidButton()">
+                                                                <option value="Efectivo">Efectivo</option>
+                                                                <option value="Tarjeta">Tarjeta de Credito/Debito</option>
                                                             </select>
+                                                            <div *ngIf="ocultarTarjeta" class="col-12">
+                                                                <label class="col-12">Seleccione su tarjeta.</label>
+                                                                <select class="form-control col-8" [(ngModel)]="numeroTarjeta" name="numeroTarjeta">
+                                                                    <option *ngFor="let tarjeta of usuarioArray.tarjetas" (click)="SelectPagos(tarjeta.numeroTarjeta);;ValidButton()" value="{{tarjeta.numeroTarjeta}}">{{tarjeta.nombreTarjeta}} / {{tarjeta.numeroTarjeta}}</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                             <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
-                                                <button type="button" class="btn" id="AddCart">Realizar orden</button>
+                                                <button type="button" class="btn" id="AddCart" (click)="comprar()" [disabled]="buttonDisability==false">Realizar Comprar</button>
                                             </div>
                                         </div>
                                     </div>

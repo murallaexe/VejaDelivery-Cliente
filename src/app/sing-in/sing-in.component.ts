@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import {faEye,faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
+import { CustomerService } from '../Service/customer.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sing-in',
   templateUrl: './sing-in.component.html',
@@ -19,7 +21,11 @@ export class SingINComponent implements OnInit {
   backendHost:string = 'http://localhost:8888';
   validarButton:boolean= false;
   validarPassword:boolean= false;
-  constructor( private httpClient:HttpClient) { }
+  constructor( 
+    private httpClient:HttpClient,
+    private customerService:CustomerService,
+    private router:Router,
+  ) { }
   //constructor() { }
   get nombre(){
     return this.formularioRegistrar.get('nombreUsuario');
@@ -36,11 +42,15 @@ export class SingINComponent implements OnInit {
       this.validarButton=true;
     }else{
       this.validarButton=false;
-      this.httpClient.post(`${this.backendHost}/usuarios`,this.formularioRegistrar.value)
-      .subscribe((res:any)=>{
-        console.log(res);
-        this.UsersNew.push(res);
-      });
+      this.customerService.guardarUsario(this.formularioRegistrar.value).subscribe(
+        res=>{
+          console.log(res);
+          this.router.navigate(['VejaDelivery/Login']);
+        },
+        error=>{
+          console.log(error);
+        }
+      );
     }
     console.log(this.formularioRegistrar.value);
     console.log('Formulario válido', this.formularioRegistrar.valid);

@@ -1,15 +1,15 @@
 <div class="content">
-    <div class="animated fadeIn">
+    <div class="animated fadeIn" *ngIf="ocultardatas">
         <div class="row">
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
-                <div class="card bg-white" style="padding: 0px 12px 0px 12px;">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 card-size" *ngFor="let categoria of categorias">
+                <div class="card bg-white" style="padding: 0px 12px 0px 12px;" (click)="SelectCategory(categoria._id)">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faUtensils"></fa-icon>
                     </div>
                     <div class="card-header user-header alt bg-dark">
                         <div class="media">
                             <div class="media-body">
-                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Restaurantes</h2></button>
+                                <button class="btn col-12" (click)="SelectCategory(categoria._id)" ><h2 class="text-light display-6">{{categoria.nombreCategoria}}</h2></button>
                                 <!-- <a href=""><h2 class="text-light display-6">Restaurantes</h2></a> -->
                             </div>
                         </div>
@@ -19,10 +19,9 @@
 
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <a href="#"> <fa-icon [icon]="faTasks"></fa-icon> Comercios <span class="badge badge-danger pull-right">15</span></a>
+                                <a href="#"> <fa-icon [icon]="faTasks"></fa-icon> Comercios <span class="badge badge-danger pull-right">{{categoria.comercios.length}}</span></a>
                             </li>
                         </ul>
-
                     </section>
                     <div class="card-body">
                         <div class="card-text text-sm-center">
@@ -34,102 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
-                <div class="card bg-danger" style="padding: 0px 12px 0px 12px;">
-                    <div class="card-header">
-                        <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faShoppingBag"></fa-icon>
-                    </div>
-                    <div class="card-header user-header alt bg-dark">
-                        <div class="media">
-                            <div class="media-body">
-                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Supermercado</h2></button>
-                            </div>
-                        </div>
-                    </div>
-                    <section class="card">
-
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <a href="#"> <fa-icon [icon]="faTasks"></fa-icon> Comercios <span class="badge badge-danger pull-right">15</span></a>
-                            </li>
-                        </ul>
-
-                    </section>
-                    <div class="card-body">
-                        <div class="card-text text-sm-center">
-                            <a href="#"><fa-icon [icon]="faFacebook"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faTwitter"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faInstagram"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faPinterest"></fa-icon></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
-                <div class="card bg-white" style="padding: 0px 12px 0px 12px;">
-                    <div class="card-header">
-                        <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faIndustry"></fa-icon>
-                    </div>
-                    <div class="card-header user-header alt bg-dark">
-                        <div class="media">
-                            <div class="media-body">
-                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Ferretería</h2></button>
-                            </div>
-                        </div>
-                    </div>
-                    <section class="card">
-
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <a href="#"> <fa-icon [icon]="faTasks"></fa-icon> Comercios <span class="badge badge-danger pull-right">15</span></a>
-                            </li>
-                        </ul>
-
-                    </section>
-                    <div class="card-body">
-                        <div class="card-text text-sm-center">
-                            <a href="#"><fa-icon [icon]="faFacebook"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faTwitter"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faInstagram"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faPinterest"></fa-icon></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-3 col-xl-3 card-size" (click)="SelectCategory()">
-                <div class="card bg-danger" style="padding: 0px 12px 0px 12px;">
-                    <div class="card-header">
-                        <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faGlassCheers"></fa-icon>
-                    </div>
-                    <div class="card-header user-header alt bg-dark">
-                        <div class="media">
-                            <div class="media-body">
-                                <button class="btn col-12" (click)="SelectCategory()" ><h2 class="text-light display-6">Licorería</h2></button>
-                            </div>
-                        </div>
-                    </div>
-                    <section class="card">
-
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <a href="#"> <fa-icon [icon]="faTasks"></fa-icon> Comercios <span class="badge badge-danger pull-right">15</span></a>
-                            </li>
-                        </ul>
-
-                    </section>
-                    <div class="card-body">
-                        <div class="card-text text-sm-center">
-                            <a href="#"><fa-icon [icon]="faFacebook"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faTwitter"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faInstagram"></fa-icon></a>
-                            <a href="#"><fa-icon [icon]="faPinterest"></fa-icon></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div><!-- .row -->
     </div><!-- .animated -->
 </div>

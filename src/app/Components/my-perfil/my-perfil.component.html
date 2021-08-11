@@ -1,0 +1,170 @@
+<div class="content row" *ngIf="ocultardatas">
+    <div class="col-lg-6">
+        <div class="card" [formGroup]="formularioInfoUsuario">
+            <div class="card-header"><strong>Información</strong><small> usuario</small></div>
+            <div class="card-body card-block row">
+                <div class="form-group">
+                    <label for="company" class=" form-control-label">Nombre Completo</label>
+                    <!-- <input [ngModel]="nombre" type="text" id="customer" placeholder="ingrese su nombre" class="form-control"> -->
+                    <input formControlName="nombre" type="text" id="customer" placeholder="ingrese su nombre" class="form-control">
+                </div>
+                <div class="form-group"><label for="country" class=" form-control-label">Dirección</label></div>
+                <div class="form-group col-4">
+                    <label for="country" class=" form-control-label">País</label>
+                    <input formControlName="pais" id="country" placeholder="Ingrese Su País" class="form-control">
+                    <!-- <select name="" id="" class="form-control"  id="country" [ngModel]="usuarioInformacion.pais">
+                        <option *ngFor="let pais of regiones" value="{{pais.nombrePais}}" >{{pais.nombrePais}}</option>
+                    </select> -->
+                </div>
+                <div class="form-group col-4">
+                    <label for="city" class=" form-control-label">Ciudad</label>
+                    <input formControlName="ciudad" type="text"  id="city" placeholder="Ingrese Su Ciudad" class="form-control">
+                    <!-- <select name="" id="" class="form-control"  id="city" [ngModel]="usuarioInformacion.ciudad">
+                        <option *ngFor="let pais of regiones" value="{{pais.nombrePais}}" >{{pais.nombrePais}}</option>
+                    </select> -->
+                </div>
+                <div class="form-group col-4">
+                    <label for="vat" class=" form-control-label">Colonia</label>
+                    <input formControlName="colonia" type="text" id="col" placeholder="Colonia donde vive" class="form-control">
+                    <!-- <select name="" id="" class="form-control"  id="col" [ngModel]="usuarioInformacion.colonia">
+                        <option *ngFor="let ciudad of regiones.ciudad" value="{{ciudad.nombreCiudad}}" >{{ciudad.nombreCiudad}}</option>
+                    </select> -->
+                </div>
+                <div class="form-group col-12">
+                    <label for="street" class=" form-control-label">Número teléfono</label>
+                    <input formControlName="numTelefono" type="text"  id="street" placeholder="Ingrese Su Numero telefonico" class="form-control">
+                </div>
+                <div class="form-group col-12">
+                    <label for="street" class=" form-control-label">Descripción</label>
+                    <textarea name="" formControlName="descripcion" id="descripcion" cols="30" rows="3" placeholder="Descripción"class="form-control"></textarea>
+                </div>
+                <!-- <div class="form-group col-12">
+                    <label for="street" class=" form-control-label">Url foto </label>
+                    <textarea name="" formControlName="descripcion" id="descripcion" cols="30" rows="3" placeholder="Descripción"class="form-control"></textarea>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Tarjeta de crédito</strong>
+            </div>
+            <div class="card-body">
+                <!-- Credit Card -->
+                <div id="pay-invoice">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3 class="text-center">Forma de Pago Tipo Tarjeta</h3>
+                        </div>
+                        <hr>
+                        <form action="#" method="post" novalidate="novalidate" [formGroup]="formularioNewTarjeta">
+                            <div class="form-group text-center">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><fa-icon [icon]="faCreditCard"></fa-icon></li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
+                                <input id="cc-number" formControlName="numeroTarjeta" (change)="GenerarNombreTarjeta()" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" placeholder="9999-9999-9999-9999">
+                                <span class="help-block error" *ngIf="errorTarjeta" data-valmsg-for="cc-number" data-valmsg-replace="true">Tarjeta no permitida</span>
+                            </div>
+                            <div class="form-group has-success">
+                                <label for="cc-name" class="control-label mb-1">Nombre en la tarjeta</label>
+                                <input id="cc-name" [attr.disabled]="disabledb==false" formControlName="nombreTarjeta" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name">
+                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="cc-exp" class="control-label mb-1">Vencimiento</label>
+                                        <input id="cc-exp" formControlName="vencimiento" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY">
+                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="x_card_code" class="control-label mb-1">Código de seguridad</label>
+                                    <div class="input-group">
+                                        <input id="x_card_code" formControlName="codigoSeguridad" name="x_card_code" type="number" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
+                                        <div class="input-group-addon">
+                                            <fa-icon [icon]="faQuestion"></fa-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="payment-button" [disabled]="!formularioNewTarjeta.valid || errorTarjeta==true" (click)="guardarTarjeta()" type="submit" class="btn btn-lg btn-info btn-block btn-width">
+                                    <fa-icon [icon]="faLock"></fa-icon>&nbsp;
+                                    <span id="payment-button-amount">guardar</span>
+                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- .card -->
+
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">Usuario acceso</div>
+            <div class="card-body card-block">
+                <form action="#" method="post" class="" [formGroup]="formularioUsuacioAcceso">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">Nombre usuario o Apodo</div>
+                            <input formControlName="apodo" type="text" id="username3"  name="username3" class="form-control">
+                            <div class="input-group-addon"><fa-icon [icon]="faUser"></fa-icon></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">Correo Electrónico</div>
+                            <input formControlName="email" type="email" id="email3"  name="email3" class="form-control">
+                            <div class="input-group-addon"><fa-icon [icon]="faEnvelope"></fa-icon></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">Contraseña</div>
+                            <input formControlName="contrasenia" type="password" id="password3"  name="password3" class="form-control">
+                            <div class="input-group-addon"><fa-icon [icon]="faAsterisk"></fa-icon></div>
+                        </div>
+                    </div>
+                    <div class="form-actions form-group">
+                        <button type="button" class="btn btn-warning btn-sm" (click)="guardarCambios()">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Tarjetas o tarjeta guardada</strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Numero</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tarjeta of tarjetasArray, let indice = index">
+                            <th scope="row">{{indice}}</th>
+                            <td>{{tarjeta.numeroTarjeta}}</td>
+                            <td>{{tarjeta.nombreTarjeta}}</td>
+                            <td><button class="btn" (click)="eliminarTarjeta(tarjeta._id)"><fa-icon [icon]="faTrash"></fa-icon></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

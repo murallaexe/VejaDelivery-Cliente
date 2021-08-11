@@ -79,7 +79,7 @@
     }
     .imgMenu {
         height: 300px;
-        background-image: url('../../../assets/img/delivery/Banner PizzaHut.png');
+        background-image: url('../../../assets/img/delivery/PizzaHut/Banner PizzaHut.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -212,7 +212,7 @@
 }
 .ProdCOnte .DivSegGenera{
     height: 300px;
-    background-image: url(../../../assets/img/delivery/PizzaHut.jpg);
+    background-image: url(../../../assets/img/delivery/PizzaHut/PizzaHut.jpg);
     background-attachment: fixed;
     border-top-left-radius: 20px; 
     border-top-right-radius: 20px;
@@ -274,4 +274,22 @@
     background-color: #ff2e44;
     border: 2px solid #FB1D5A;
     color: white;
+}
+.btn-info2{
+    color: white;
+    background-color: #ff2e44;
+    border: 3px white solid;
+    font-size: larger;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.btn-info2:hover{
+    background-color: #FB1D5A;
+}
+
+.displayflex .form-group span{
+    font-size: small !important;
+}
+.displayflex .form-group .errorSpan{
+    color: #FB1D5A;
 }

@@ -1,50 +1,56 @@
 
-
-<aside id="left-panel" *ngIf="ocultarPanelLeft" class="left-panel">
-    <app-panel-left (onSelectRegister)="estadoComponentVisual($event)"></app-panel-left>
-</aside>
-<div id="right-panel" class="right-panel">
-    <div class="col-12">
-        <button class="btn btn-White-Edit" >Motorista</button>
-    </div>
-    <!-- Header-->
-    <app-header (OnOcultarBarra)="ocultarBarraleft($event)"></app-header>
-    <!-- /#header -->
-    <div class="breadcrumbs">
-        <div class="breadcrumbs-inner">
-            <div class="row m-0">
-                <div class="col-sm-4">
-                    <div class="page-header float-left">
-                        <div class="page-title">
+<div>
+    <aside id="left-panel" *ngIf="ocultarPanelLeft" class="left-panel">
+        <app-panel-left (onSelectRegister)="estadoComponentVisual($event)"></app-panel-left>
+    </aside>
+    <div id="right-panel" class="right-panel">
+        <div class="col-12"*ngIf="ocultarMotorista" >
+            <button class="btn btn-White-Edit" >Motorista</button>
+        </div>
+        <!-- Header-->
+        <app-header #header (OnOcultarBarra)="ocultarBarraleft($event)"></app-header>
+        <!-- /#header -->
+        
+        <div class="breadcrumbs">
+            <div class="breadcrumbs-inner">
+                <div class="row m-0">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="page-header float-right">
-                        <div class="page-title">
-                            <ol class="breadcrumb text-right">
-                                <li><a href="#">App</a></li>
-                                <li class="active">Categorias</li>
-                            </ol>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">App</a></li>
+                                    <li class="active">{{stadeComponents}}</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div style="padding-left: 35px;">
+            <h1>Hola {{NombreUsuarioBienvenida}}!</h1>
+        </div>
+        <!-- Content -->
+        <!-- para categorias-->
+            <app-category #category (onSelectCategory)="estadoComponentVisual($event)"></app-category>
+        <!-- /. categorias-->
+        <!-- para compania-->
+            <app-company #company (onSelectCompany)="estadoComponentVisual($event)"></app-company>
+        <!-- /. compania-->
+        <!-- para ordenar y comprar productos-->
+            <app-product-company #Product (onProductoSelection)="estadoComponentVisual($event)"></app-product-company>
+        <!-- /. ordenar y comprar productos-->
+            <app-register #regiter ></app-register>
+        <!-- perfil -->
+            <app-my-perfil #Myperfils ></app-my-perfil>
+        <!-- /.content -->
+        <!-- Footer -->
+        <!-- /.site-footer -->
     </div>
-    <!-- Content -->
-    <!-- para categorias-->
-        <app-category (onSelectCategory)="estadoComponentVisual($event)" *ngIf="stadeComponents=='Category'"></app-category>
-    <!-- /. categorias-->
-    <!-- para compania-->
-        <app-company (onSelectCompany)="estadoComponentVisual($event)" *ngIf="stadeComponents=='Company'"></app-company>
-    <!-- /. compania-->
-    <!-- para ordenar y comprar productos-->
-        <app-product-company #Product (onProductoSelection)="estadoComponentVisual($event)" *ngIf="stadeComponents=='productCompany'"></app-product-company>
-    <!-- /. ordenar y comprar productos-->
-        <app-register #regiter *ngIf="stadeComponents=='RegisterCompras'|| stadeComponents=='RegisterList'"></app-register>
-
-    <!-- /.content -->
-    <!-- Footer -->
-    <!-- /.site-footer -->
 </div>

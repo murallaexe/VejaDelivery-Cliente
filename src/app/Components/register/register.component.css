@@ -32,7 +32,8 @@
 
     .content {
         float: left;
-        padding: 1.875em;
+        padding-right: 1.875em;
+        padding-left: 1.875em;
         width: 100%;
     }
 
@@ -111,6 +112,23 @@
     background: #fb9678;
 }
 
-
-
-
+.divTotal h6{
+    text-align: end;
+}
+.btn-badge{
+    background-color: #00c292;
+    color:white;
+    margin-left: auto;
+    display: block;
+    margin-bottom: 7px;
+    font-size: larger;
+    font-weight: 700;
+}
+.card-body .form-group label, h6 {
+    color: #00c292;
+    font-weight: 800;
+}
+.card-body .form-group span {
+    color: #DF8D5A;
+    font-weight: 600;
+}

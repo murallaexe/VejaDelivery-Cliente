@@ -1,5 +1,5 @@
 {
-  "name": "delivery-app",
+  "name": "frontend-DeliveryApp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -25,10 +25,13 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "angular-font-awesome": "^3.1.2",
+    "font-awesome": "^4.7.0",
     "angular-http": "^0.0.0",
     "angular-router": "^0.0.2",
     "angular-routing": "^0.3.1",
     "bootstrap": "^5.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

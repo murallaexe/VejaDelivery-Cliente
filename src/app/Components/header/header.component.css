@@ -251,7 +251,7 @@ display: none;
         }
 
     .header-menu .dropdown {
-      line-height: 55px;
+      /* line-height: 55px; */
       margin-top: 0 !important; 
     }
     .header-menu .dropdown .dropdown-toggle {

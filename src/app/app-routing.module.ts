@@ -8,14 +8,14 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SingINComponent } from './sing-in/sing-in.component';
 import { AppCustomerComponent } from './app-customer/app-customer.component';
-
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
     { path: '', component: LandigPageComponent},
-    { path: 'VejaDelivery', component: LandigPageComponent},
+    { path: 'VejaDelivery', component: LandigPageComponent,pathMatch:'full'},
     { path: 'VejaDelivery/Login', component: LoginComponent},
     { path: 'VejaDelivery/SingIn', component: SingINComponent},
-    { path: 'VejaDelivery/AppCustomer', component: AppCustomerComponent},
+    { path: 'VejaDelivery/AppCustomer', component: AppCustomerComponent,canActivate:[AuthGuard]},
     { path: '**', component: NotFoundComponent }
 ]; // sets up routes constant where you define your routes
 

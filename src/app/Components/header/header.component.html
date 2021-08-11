@@ -1,25 +1,23 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./"><img src="../../../assets/img/logo blanco.png" alt="Logo"></a>
+            <a class="navbar-brand" href="VejaDelivery/AppCustomer"><img src="../../../assets/img/logo blanco.png" alt="Logo"></a>
             <a id="menuToggle" class="menutoggle" (click)="ocultarPanelLeft()"><fa-icon [icon]="faBars"></fa-icon></a>
         </div>
     </div>
     <div class="top-right">
         <div class="header-menu">
             <div class="header-left">
-                <h6>Edwin Quintero</h6>
+                <h6>{{nombreUsuarioHeader}}</h6>
             </div>
 
             <div class="user-area dropdown float-right">
-                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="ocultarLogout()">
                     <img class="user-avatar rounded-circle" src="../../../assets/img/team/EdwinQuintero.jpeg" alt="User Avatar">
-                </a>
+                </button>
 
-                <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="VejaDelivery/AppCustomer"><i class="fa fa- user"></i>Mi perfil</a>
-                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configuración</a>
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Cerrar sesión</a>
+                <div class="user-menu dropdown-menu" style="display: block; right: -30px; top:57px" *ngIf="ocultarLo">
+                    <button class="btn nav-link" (click)="logout()"  href="#"><fa-icon [icon]="faPowerOff"></fa-icon>Cerrar sesión</button>
                 </div>
             </div>
 

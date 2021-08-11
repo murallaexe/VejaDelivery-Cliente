@@ -1,50 +1,32 @@
 <div class="container-contact100">
     <div class="wrap-contact100">
         <form class="contact100-form validate-form" id="formpanel" [formGroup]="formularioRegistrar">
-            <a href="VejaDelivery/Login" class="button scrolly">Inicio Sessión</a>
+            <a href="VejaDelivery/AppCustomer" class="button scrolly">Inicio Sessión</a>
             <span class="contact100-form-title">
                 Registrarse 
             </span>
-            <!--div class="container">
-                <div class="row">
-                    <div class="form-check col-6">
-                        <input id="Color-Check" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Personal
-                        </label>
-                    </div>
-                    <div class="form-check col-6">
-                        <input id="Color-Check" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Empresarial
-                        </label>
-                    </div>
-
-                </div>
-            </div-->
             <div class="wrap-input100 validate-input" data-validate="Name is required">
                 <label class="label-input100" for="name">Nombre Completo</label>
-                <input formControlName="nombreUsuario" [class]="{'input-error':nombre?.invalid && (nombre?.dirty || nombre?.touched)}" id="nameUser" class="input100" type="text" name="name" placeholder="Enter your name...">
+                <input formControlName="nombreUsuario" [class]="{'input-error':nombre?.invalid && (nombre?.dirty || nombre?.touched)}" id="nameUser" class="input100" type="text" name="name" placeholder="Íngrese su nombre...">
                 <span class="focus-input100"></span>
             </div>
             <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="error">
                 <span *ngIf="nombre?.errors?.required">Error este campo es obligatorio</span>
-                <span *ngIf="nombre?.errors?.maxlength">Error tamaño incorrecto</span>
             </div>
             <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                 <label class="label-input100" for="email">Email Address</label>
-                <input formControlName="emailUsuario" id="email" class="input100" type="text" name="email" placeholder="Enter your email...">
+                <input formControlName="emailUsuario" id="email" class="input100" type="text" name="email" placeholder="Íngrese su correo...">
                 <span class="focus-input100"></span>
             </div>
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
                 <label class="label-input100" for="password">Contraseña</label>
-                <input formControlName="passwordUsuario" (change)="validPassword()" id="passwordI" class="input100" type="password" name="password" placeholder="password">
+                <input formControlName="passwordUsuario" (change)="validPassword()" id="passwordI" class="input100" type="password" name="password" placeholder="Contraseña">
                 <span class="focus-input100"></span>
                 <a href=""></a>
             </div>
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
                 <label class="label-input100" for="password">confirme Contraseña</label>
-                <input formControlName="password2" (change)="validPassword()" id="passwordII" class="input100" type="password" name="password" placeholder="password">
+                <input formControlName="password2" (change)="validPassword()" id="passwordII" class="input100" type="password" name="password" placeholder="Contraseña">
                 <span class="focus-input100"></span>
             </div>
             <div *ngIf="validarPassword" class="error">
@@ -71,7 +53,7 @@
             </div>
         </form>
 
-        <div class="contact100-more flex-col-c-m" id="divPanel" style="background-image: url('../../assets/img/bg-01.jpg');">
+        <div class="contact100-more flex-col-c-m" id="divPanel" style="background-image: url('../../assets/img/bg-012.jpg');">
             <div class="col-md-7" id="hover">
                 <div class="text-img">
                    <figure><img class="imgsize" src="../../assets/img/img2.png" /></figure>

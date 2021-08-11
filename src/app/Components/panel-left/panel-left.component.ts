@@ -10,9 +10,7 @@ export class PanelLeftComponent implements OnInit {
   selectRegister:string="";
   @Output() onSelectRegister = new EventEmitter();
   selectCategory:string="";
-  @Output() onSelectCategory = new EventEmitter();
   selectCompany:string="";
-  @Output() onSelectCompany = new EventEmitter();
   constructor() { }
   leftCategory:boolean=true;
   leftRegister:boolean=true;
@@ -39,8 +37,12 @@ export class PanelLeftComponent implements OnInit {
       this.selectRegister="RegisterCompras";
     }else{
       this.selectRegister="RegisterList";
+    };
+    var enviar ={
+      url:this.selectRegister,
+      id: "data",
     }
-    this.onSelectRegister.emit(this.selectRegister);
+    this.onSelectRegister.emit(enviar);
   }
   desplegar(envent:any){
     if(envent==1){
@@ -59,10 +61,29 @@ export class PanelLeftComponent implements OnInit {
   }
   categoryBarraleft(){
     this.selectCategory="Category";
-    this.onSelectRegister.emit(this.selectCategory);
+    var enviar ={
+      url:this.selectCategory,
+      id: "data",
+    }
+    console.log("panel-left components");
+    this.onSelectRegister.emit(enviar);
   }
   companyBarraleft(){
     this.selectCategory="Company";
-    this.onSelectRegister.emit(this.selectCategory);
+    var enviar ={
+      url:this.selectCategory,
+      id: "data",
+    }
+    console.log("panel-left components");
+    this.onSelectRegister.emit(enviar);
+  }
+  PerfilBarraleft(){
+    this.selectCategory="MyPerfil";
+    var enviar ={
+      url:this.selectCategory,
+      id: "data",
+    }
+    console.log("panel-left components");
+    this.onSelectRegister.emit(enviar);
   }
 }

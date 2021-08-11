@@ -1,7 +1,7 @@
 <div class="content">
-    <div class="row">
-        <div class="col-lg-12" *ngIf="selectRegister=='RegisterCompras'"  style="padding: 0px 15px;">
-            <div class="card">
+    <div class="row" *ngIf="ocultardatas">
+        <div class="col-lg-12" *ngIf="selectRegister=='RegisterList'"  style="padding: 0px 15px;">
+            <div class="card" *ngIf="ocultarPedidos">
                 <div class="card-header">
                     <strong class="card-title">Lista estados de pedidos</strong>
                 </div>
@@ -9,95 +9,21 @@
                     <table class="table ">
                         <thead>
                             <tr>
-                                <th class="serial">#</th>
-                                <th>ID</th>
-                                <th>Nombre Repartidor</th>
-                                <th>Tomado</th>
-                                <th>Reclamado</th>
-                                <th>Encamino</th>
-                                <th>Entregado</th>
-                                <th>completado</th>
+                                <th>IdPedido</th>
+                                <th>Empresa/Producto</th>
+                                <th>Estado</th>
+                                <th>Detalles</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="serial">1.</td>
-                                <td> #5469 </td>
-                                <td>  <span class="name">Louis Stanley</span> </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
+                            <tr *ngFor="let pedido of registerArray">
+                                <td *ngIf="pedido.tipoOrden!='completada'">{{pedido.idOrden}}</td>
+                                <td *ngIf="pedido.tipoOrden!='completada'"> <span class="name">{{pedido.empresa}}/{{pedido.producto}}</span> </td>
+                                <td *ngIf="pedido.tipoOrden!='completada'">
+                                    {{pedido.estadoOrden}}
                                 </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="serial">2.</td>
-                                <td> #5468 </td>
-                                <td>  <span class="name">Gregory Dixon</span> </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="serial">3.</td>
-                                <td> #5467 </td>
-                                <td>  <span class="name">Catherine Dixon</span> </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-complete">Completado</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="serial">4.</td>
-                                <td> #5466 </td>
-                                <td>  <span class="name">------</span> </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-pending">Pendiente</span>
+                                <td *ngIf="pedido.tipoOrden!='completada'">
+                                    <span class="badge badge-complete" (click)="VerDetalles(pedido._id)">Ver</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -105,8 +31,76 @@
                 </div> <!-- /.table-stats -->
             </div>
         </div>
-        <div class="col-lg-12" *ngIf="selectRegister=='RegisterList'">
-            <div class="card">
+        <div>
+        <div *ngIf="ocultarDetalles==true">
+            <div>
+                <button class="btn btn-badge" (click)="iratras()">Atrás</button>
+            </div>  
+            <div class="card" >
+                <div class="card-header"><strong>Detalles productos.</strong></div>
+                <div class="card-body card-block row" *ngFor="let detalle of registerArrayOne">
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label for="company" class=" form-control-label"></label>
+                        <label for="company" class=" form-control-label">Nombre empresa : <span>{{detalle.empresa}}</span></label>
+                    </div>
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label for="company" class=" form-control-label">Producto : <span>{{detalle.producto}}</span></label>
+                    </div>
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label for="company" class=" form-control-label">Tipo compra : <span>{{detalle.tipoEntrega}}</span></label>
+                    </div>
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label for="company" class=" form-control-label">Hora y fecha : <span>{{detalle.tiempoEntrega}}</span></label>
+                    </div>
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label for="company" class=" form-control-label">Metodo pago : <span>{{detalle.metodoPago}}</span></label>
+                    </div>
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" *ngIf="ocultarSerialTarjeta">
+                        <label for="company" class=" form-control-label">Tarjeta : <span>{{detalle.numeroPago}}</span></label>
+                    </div>
+                    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label for="company" class=" form-control-label"></label>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">#</th>
+                                    <th>Precio</th>
+                                    <th>cantidad</th>
+                                    <th>comision</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="serial">1.</td>
+                                    <td>{{detalle.precioProducto}}</td>
+                                    <td> <span class="name"></span>{{detalle.cantidadProducto}}</td>
+                                    <td>
+                                        {{detalle.comision}}
+                                    </td>
+                                    <td>
+                                        {{(detalle.precioProducto*detalle.cantidadProducto)+detalle.comision}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-group divTotal col-12">
+                        <h6>Subtotal:  <span>{{(detalle.precioProducto*detalle.cantidadProducto)+detalle.comision}}</span></h6>
+                        <h6>ISV: <span>{{((detalle.precioProducto*detalle.cantidadProducto)+detalle.comision)*0.15}}</span></h6>
+                        <h6>Total: <span>{{
+                            ((detalle.precioProducto*detalle.cantidadProducto)+detalle.comision)*1.15
+                        }}</span></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-12" *ngIf="selectRegister=='RegisterCompras'">
+            <div class="card" *ngIf="ocultarCompras">
+
                 <div class="card-header">
                     <strong class="card-title">Lista de compras</strong>
                 </div>
@@ -114,60 +108,27 @@
                     <table class="table ">
                         <thead>
                             <tr>
-                                <th class="serial">#</th>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
+                                <th>IdCompra</th>
+                                <th>Empresa/Producto</th>
                                 <th>Estado</th>
+                                <th>Detalles</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="serial">1.</td>
-                                <td> #5469 </td>
-                                <td>  <span class="name">Louis Stanley</span> </td>
-                                <td> <span class="product">iMax</span> </td>
-                                <td><span class="price">1</span></td>
-                                <td><span class="count">231</span></td>
-                                <td>
-                                    <span class="badge badge-complete">Complete</span>
+
+
+                            <tr *ngFor="let pedido of registerArray">
+                                <td *ngIf="pedido.tipoOrden=='completada'">{{pedido.idOrden}}</td>
+                                <td *ngIf="pedido.tipoOrden=='completada'"> <span class="name">{{pedido.empresa}}/{{pedido.producto}}</span> </td>
+                                <td *ngIf="pedido.tipoOrden=='completada'">
+                                    {{pedido.estadoOrden}}
+                                </td>
+                                <td *ngIf="pedido.tipoOrden=='completada'">
+                                    <span class="badge badge-complete" (click)="VerDetalles(pedido._id)">Ver</span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="serial">2.</td>
-                                <td> #5468 </td>
-                                <td>  <span class="name">Gregory Dixon</span> </td>
-                                <td> <span class="product">iPad</span> </td>
-                                <td><span class="price">1</span></td>
-                                <td><span class="count">250</span></td>
-                                <td>
-                                    <span class="badge badge-complete">Complete</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="serial">3.</td>
-                                <td> #5467 </td>
-                                <td>  <span class="name">Catherine Dixon</span> </td>
-                                <td> <span class="product">SSD</span> </td>
-                                <td><span class="price">1</span></td>
-                                <td><span class="count">250</span></td>
-                                <td>
-                                    <span class="badge badge-complete">Complete</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="serial">4.</td>
-                                <td> #5466 </td>
-                                <td>  <span class="name">Mary Silva</span> </td>
-                                <td> <span class="product">Magic Mouse</span> </td>
-                                <td><span class="price">1</span></td>
-                                <td><span class="count">250</span></td>
-                                <td>
-                                    <span class="badge badge-pending">Pending</span>
-                                </td>
-                            </tr>
+                            
+
                         </tbody>
                     </table>
                 </div> <!-- /.table-stats -->

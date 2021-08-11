@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {faFacebook,faTwitter,faInstagram,faPinterest} from '@fortawesome/free-brands-svg-icons';
-import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-landig-page',

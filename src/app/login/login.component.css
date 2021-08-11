@@ -501,3 +501,10 @@ textarea.input100 {
 
 #Color-Check{background-color: #5E42A6;border-color: #5E42A6;}
 .Color-Check:hover{background-color: #312450;border-color: #312450;}
+
+.error{
+  text-align: initial !important;
+  color: red;
+  font-size: larger;
+  text-transform: capitalize;
+}
