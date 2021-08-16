@@ -47,11 +47,11 @@ export class MyPerfilComponent implements OnInit {
   faTrash=faTrash;
 
   informacionUser(data:String){
-    console.log("id en myPerfilComponent: ", data);
+    //console.log("id en myPerfilComponent: ", data);
     this.idUusario=data;
     this.customerService.obtenerInformacionUnUsuario(data).subscribe(
       res=>{
-        console.log(res);
+        //console.log(res);
         this.formularioInfoUsuario.get('nombre')?.setValue(res.nombreUsuario);
         this.formularioInfoUsuario.get('pais')?.setValue(res.pais);
         this.formularioInfoUsuario.get('ciudad')?.setValue(res.ciudad);
@@ -81,31 +81,31 @@ export class MyPerfilComponent implements OnInit {
       telefono : this.formularioInfoUsuario.value.numTelefono ,
       apodo : this.formularioUsuacioAcceso.value.apodo ,
     };
-    console.log("id usuario :", this.idUusario,enviar);
+    //console.log("id usuario :", this.idUusario,enviar);
     // console.log("id data info: ", this.formularioInfoUsuario.value, this.formularioUsuacioAcceso.value);
     this.customerService.CambiosInfoUsuario(this.idUusario,enviar).subscribe(
       res=>{
-        console.log(res);
+        //console.log(res);
         location.reload();
       },
       error=>console.log(error)
     )
   }
   eliminarTarjeta(idTarjeta:any){
-    console.log("ID tarjeta a eliminar : ",idTarjeta);
+    //console.log("ID tarjeta a eliminar : ",idTarjeta);
     this.customerService.eliminarTarjetaCredito(this.idUusario,idTarjeta).subscribe(
       res=>{
-        console.log(res);
+        //console.log(res);
         this.informacionUser(this.idUusario);
       },
       error=>console.log(error)
     )
   }
   guardarTarjeta(){
-    console.log("data new tarjeta :",this.idUusario,this.formularioNewTarjeta.value);
+    //console.log("data new tarjeta :",this.idUusario,this.formularioNewTarjeta.value);
     this.customerService.guardarTarjetaCredito(this.idUusario,this.formularioNewTarjeta.value).subscribe(
       res=>{
-        console.log(res);
+        //console.log(res);
         //location.reload();
         this.informacionUser(this.idUusario);
       },
@@ -135,6 +135,6 @@ export class MyPerfilComponent implements OnInit {
         };
       };
     };
-    console.log(this.formularioNewTarjeta.value.numeroTarjeta.charAt(0));
+    //console.log(this.formularioNewTarjeta.value.numeroTarjeta.charAt(0));
   }
 }

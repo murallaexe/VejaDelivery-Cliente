@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations' 
 // import { AgmCoreModule } from '@agm/core'
 
 // import { AgmCoreModule } from 'angular2-google-maps/core'
@@ -52,6 +54,8 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule,
     CommonModule,
+    ClipboardModule,
+    BrowserAnimationsModule
     // AgmCoreModule.forRoot(
     //   {apiKey:'AIzaSyD3Jzj8Mbr-yIn7O09KmPbqpuxuUVYxMfE'}
     // )

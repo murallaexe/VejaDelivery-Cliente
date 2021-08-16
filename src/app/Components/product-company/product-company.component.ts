@@ -1,8 +1,12 @@
 import { Component, EventEmitter, OnInit, Output, NgModule } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import * as Mapboxgl from 'mapbox-gl';
+
 import { CategoriasService } from 'src/app/Service/categorias.service';
 import { CustomerService } from 'src/app/Service/customer.service';
 import { OrdenesService } from 'src/app/Service/ordenes.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-product-company',
   templateUrl: './product-company.component.html',
@@ -10,6 +14,9 @@ import { OrdenesService } from 'src/app/Service/ordenes.service';
 })
 export class ProductCompanyComponent implements OnInit {
   @Output() onProductoSelection = new EventEmitter();
+  
+  mapa!:Mapboxgl.Map;
+
   constructor(
     private categoriasService:CategoriasService,
     private customerService:CustomerService,
@@ -65,8 +72,27 @@ export class ProductCompanyComponent implements OnInit {
   validHora:boolean=false;
   buttonDisability:boolean=false;
   ngOnInit(){
-  }
+    // (Mapboxgl as any).accessToken = environment.mapboxKey;
 
+    // this.mapa = new Mapboxgl.Map({
+    //   container: 'mapa-mapbox',
+    //   style: 'mapbox://styles/mapbox/streets-v11',
+    //   center: [-87.1707396, 14.0865885],
+    //   zoom: 12.99
+    // });
+    // this.crearMarcador(-87.1707396, 14.0865885);
+  }
+  crearMarcador(lng:number,lat:number){
+    var marker = new Mapboxgl.Marker({
+      draggable:true
+    })
+    .setLngLat([lng,lat])
+    .addTo(this.mapa);
+
+    marker.on('drag',()=>{
+      console.log(marker.getLngLat());
+    })
+  }  
 
 
   activarDesc(){
@@ -239,10 +265,11 @@ export class ProductCompanyComponent implements OnInit {
     //console.log("idCategoria es: ", this.idCategoria);
     //console.log("idEmpresas es: ", this.idCompania);
     //console.log("idProductos es: ", this.idProductos);
+    var idOrdenesClient ="";
     var IdOrden = 0;
     this.ordenesService.ObtenerContador().subscribe(
       result=>{
-        console.log(result);
+        // console.log(result);
         IdOrden=result.length+1;
         
       this.categoriasService.obtenerDataOrden(this.idCategoria,this.idCompania).subscribe(
@@ -262,6 +289,7 @@ export class ProductCompanyComponent implements OnInit {
             numeroPago:this.numeroTarjeta,
 
             idCliente:this.idUsuario,
+            
             nombreCliente:this.formInfoPersonal.value.nombre,
             telefonCliente:this.formInfoPersonal.value.numTelefono,
             descripcionPedido:this.formInfoPersonal.value.DescripcionPedido,
@@ -285,20 +313,19 @@ export class ProductCompanyComponent implements OnInit {
             
           
           }
-          console.log("datos de la orden",enviarOrdenCollection,enviarUsuario);
+          //console.log("datos de la orden",enviarOrdenCollection,enviarUsuario);
           if(this.metodoPago=='Tarjeta'&&(this.numeroTarjeta=='null'||this.numeroTarjeta=='')){
-            
             alert('selecciones tarjeta');
           }else{
             this.customerService.guardarOrden(this.idUsuario,enviarUsuario).subscribe(
               res=>{
-                console.log(res);
+                //console.log(res);
               },
               error=>console.log(error)
             )
             this.ordenesService.GuardarOrden(enviarOrdenCollection).subscribe(
               res=>{
-                console.log(res);
+                // console.log(res);
                 location.reload()
                 ////setTimeout('document.location.reload()',1000);
               },

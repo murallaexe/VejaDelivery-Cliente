@@ -22,7 +22,7 @@ export class CompanyComponent implements OnInit {
     //console.log("Id categorias :", this.idCatetegoria);
     this.categoriasService.ObtenerOneCategorias(this.idCatetegoria).subscribe(
       res=>{
-        console.log(res);
+        //console.log(res);
         this.companys=res;
       },
       error=>console.log(error)
@@ -45,14 +45,14 @@ export class CompanyComponent implements OnInit {
       url:"CompanyAtras",
       id: this.idCatetegoria,
     }
-    console.log("enviar : ",enviar);
+    //console.log("enviar : ",enviar);
     this.onSelectCompany.emit(enviar);
   }
   public recibirDataIdUsuario(idUsuario:any, fal:any){
     //console.log("data company: ",idUsuario);
     this.categoriasService.ObtenerOneCategorias(idUsuario).subscribe(
       res=>{
-        console.log(res);
+        // console.log(res);
         this.companys=res;
         this.nombreCatgoria=res.nombreCategoria;
         //this.idCompania=res._id;

@@ -4,8 +4,41 @@
         <app-panel-left (onSelectRegister)="estadoComponentVisual($event)"></app-panel-left>
     </aside>
     <div id="right-panel" class="right-panel">
+        
         <div class="col-12"*ngIf="ocultarMotorista" >
-            <button class="btn btn-White-Edit" >Motorista</button>
+            <button class="btn btn-White-Edit" (click)="habilitarDivMotorista()">Motorista</button>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 postAb" *ngIf="ocultarMotoristaDiv">
+            <div class="card ">
+                <div class="card-header">
+                    <strong class="card-title">Serial</strong>
+                </div>
+                <div class="card-body">
+                    <div id="pay-invoice">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3 class="text-center">Copiar url para obtener info</h3>
+                            </div>
+                            <hr>
+                            <form action="#" method="post" novalidate="novalidate" >
+                                <div class="form-group text-center">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-number" class="control-label mb-1">Serial</label>
+                                    <!-- <h6>{{tokenss}}</h6> -->
+                                    <input id="serialNumber" [(ngModel)]="tokenss"  name="numberSerial" type="tel" class="form-control" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" placeholder="9999-9999-9999-9999">
+                                    <button class="btn btn-motorista" cdkCopyToClipboard="{{tokenss}}">Copy text</button>
+                                    <button class="btn btn-motorista" (click)="irMotorista()">Ir Motorista</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
         </div>
         <!-- Header-->
         <app-header #header (OnOcultarBarra)="ocultarBarraleft($event)"></app-header>
@@ -37,6 +70,7 @@
             <h1>Hola {{NombreUsuarioBienvenida}}!</h1>
         </div>
         <!-- Content -->
+            
         <!-- para categorias-->
             <app-category #category (onSelectCategory)="estadoComponentVisual($event)"></app-category>
         <!-- /. categorias-->
@@ -52,5 +86,6 @@
         <!-- /.content -->
         <!-- Footer -->
         <!-- /.site-footer -->
+            
     </div>
 </div>

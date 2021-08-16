@@ -1,4 +1,7 @@
+import { calcPossibleSecurityContexts } from '@angular/compiler/src/template_parser/binding_parser';
 import { Component, OnInit, ViewChild,Injector, AfterViewInit, ViewChildren, AfterViewChecked, } from '@angular/core';
+// import * as Mapboxgl from 'mapbox-gl';
+
 import { CategoryComponent } from '../Components/category/category.component';
 import { CompanyComponent } from '../Components/company/company.component';
 import { HeaderComponent } from '../Components/header/header.component';
@@ -7,6 +10,7 @@ import { ProductCompanyComponent } from '../Components/product-company/product-c
 import { RegisterComponent } from '../Components/register/register.component';
 import { AuthService } from '../Service/auth.service';
 import { CustomerService } from '../Service/customer.service';
+// import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-app-customer',
@@ -14,13 +18,16 @@ import { CustomerService } from '../Service/customer.service';
   styleUrls: ['./app-customer.component.css'],
 })
 
-export class AppCustomerComponent implements OnInit,AfterViewInit, AfterViewChecked{
+export class AppCustomerComponent implements OnInit{
   @ViewChild('Product') productCompany!: ProductCompanyComponent;
   @ViewChild('regiter') registerComponent!: RegisterComponent;
   @ViewChild('header') headerComponent!:HeaderComponent;
   @ViewChild('Myperfils') myPerfilComponent!:MyPerfilComponent;
   @ViewChild("company") public companyComponent !: CompanyComponent;
   @ViewChild('category') categoryComponent!:CategoryComponent;
+
+  // mapa!:Mapboxgl.Map;
+
   panelLeft:boolean= false;
   nada:String=""
 
@@ -30,29 +37,43 @@ export class AppCustomerComponent implements OnInit,AfterViewInit, AfterViewChec
   constructor(
     private authService:AuthService,
   ){}
-  ngAfterViewInit():void{
-  }
-  ngAfterViewChecked():void{
-  }
 
   contador:number=0;
   NombreUsuarioBienvenida:String="";
   usuarioLogin:any;
   ocultarMotorista:boolean=true;
   ocultarPanelLeft:boolean=true;
+  ocultarMotoristaDiv:boolean=false;
   categoryVisual:boolean=true;
   companyVisual:boolean=false;
   idUsuario:any;
   stadeComponents:string="Category";
   stadePage:String="login";
+  tokenss:any="";
   ngOnInit(): void {
+    // (Mapboxgl as any).accessToken = environment.mapboxKey;
+
+    // this.mapa = new Mapboxgl.Map({
+    //   container: 'mapa-mapbox',
+    //   style: 'mapbox://styles/mapbox/streets-v11',
+    //   center: [-87.1707396, 14.0865885],
+    //   zoom: 12.99
+    // });
+    // this.crearMarcador(-87.1707396, 14.0865885);
+
+
+
     //console.log("usuario Login:" , this.usuarioLogin);
     var tokens = localStorage.getItem('token');
+
+    //sessionStorage.setItem('token',`${tokens}`);
+    
     var token = {"token":tokens};
-    console.log(token)
+    this.tokenss = tokens;
+    //console.log(token)
     this.authService.authe(token).subscribe(
       res=>{
-        console.log(res);
+        //console.log(res);
         //para el nombre
         this.headerComponent.nombreUsuarioHeader=res.authData.data.nombreUsuario;
         var cadena = res.authData.data.nombreUsuario.split(" ");
@@ -61,6 +82,7 @@ export class AppCustomerComponent implements OnInit,AfterViewInit, AfterViewChec
         this.productCompany.idUsuario=res.authData.data._id;
         if(res.authData.data.tipoUsuario=="motorista"){
           this.ocultarMotorista=true;
+
         }else{
           this.ocultarMotorista=false;
         }
@@ -81,14 +103,14 @@ export class AppCustomerComponent implements OnInit,AfterViewInit, AfterViewChec
   //   console.log("id category cusmoter",data);
   //   this.companyComponent.recibirDataIdUsuario(data, true);
   // }
-
+  
 
 
 
 
 
   public estadoComponentVisual(evento:any){
-    console.log("Estado del los componentes", evento);
+    //console.log("Estado del los componentes", evento);
     this.stadeComponents=evento.url;
     if(evento.url=="Category"){
       //console.log("url y idUsuario Appcustomer", evento.url,this.idUsuario);
@@ -148,5 +170,17 @@ export class AppCustomerComponent implements OnInit,AfterViewInit, AfterViewChec
   }
   guardarCambios(){
     
+  }
+  habilitarDivMotorista(){
+    if(this.ocultarMotoristaDiv==false){
+      this.ocultarMotoristaDiv=true;
+      
+    }else{
+      this.ocultarMotoristaDiv=false;
+    }
+  }
+  irMotorista(){
+    location.href= ('http://localhost:4204/');
+    //window.location.href = 'http://localhost:4204/';
   }
 }

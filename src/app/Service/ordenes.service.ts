@@ -24,6 +24,7 @@ export class OrdenesService {
       telefonCliente:informacion.telefonCliente,
       descripcionPedido:informacion.descripcionPedido,
       direccioncliente:informacion.direccioncliente,
+      
     });
   }
   ObtenerContador():Observable<any>{

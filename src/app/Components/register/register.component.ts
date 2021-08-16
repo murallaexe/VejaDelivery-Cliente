@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
   ocultarPedidos:boolean=true;
   ocultarCompras:boolean=true;
   ocultarSerialTarjeta:boolean=true;
-  registerArray:any;
+  registerArray:any=[];
+  comprasArray:any=[];
   registerArrayOne:any=[];
   constructor(private customerService:CustomerService) { }
 
@@ -31,7 +32,16 @@ export class RegisterComponent implements OnInit {
     this.customerService.obtenerRegistro(idUsuario).subscribe(
       res=>{
         // console.log(res.listaPedidos);
-        this.registerArray=res.listaPedidos;
+        var ind=0, ind2=0;
+        for(var i=0;i<res.listaPedidos.length;i++){
+          if(res.listaPedidos[i].estadoOrden=='completada'){
+            this.comprasArray[ind2]=res.listaPedidos[i];
+            ind2++;
+          }else{
+            this.registerArray[ind]=res.listaPedidos[i];
+            ind++;
+          }
+        }
       },
       error=>console.log(error)
     )
@@ -41,6 +51,29 @@ export class RegisterComponent implements OnInit {
     this.ocultarPedidos=false;
     this.ocultarCompras=false;
     for(let register of this.registerArray){
+      if(register._id==idRegster){
+        this.registerArrayOne[0]=register;
+      }
+    };
+    if(this.registerArrayOne[0].metodoPago=='Efectivo'){
+      this.ocultarSerialTarjeta=false;
+    }else{
+      this.ocultarSerialTarjeta=true;
+      var serialOcu = this.registerArrayOne[0].numeroPago.split('-');
+      serialOcu[0]='XXXX-';
+      serialOcu[1]='XXXX-';
+      serialOcu[2]='XXXX-';
+      this.registerArrayOne[0].numeroPago=''
+      for(let serial of serialOcu){
+        this.registerArrayOne[0].numeroPago = this.registerArrayOne[0].numeroPago + serial;
+      }
+    }
+  }
+  VerDetallesCompras(idRegster:any){
+    this.ocultarDetalles=true;
+    this.ocultarPedidos=false;
+    this.ocultarCompras=false;
+    for(let register of this.comprasArray){
       if(register._id==idRegster){
         this.registerArrayOne[0]=register;
       }

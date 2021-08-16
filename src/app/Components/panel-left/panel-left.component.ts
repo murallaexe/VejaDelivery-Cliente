@@ -32,7 +32,7 @@ export class PanelLeftComponent implements OnInit {
   faThList = faThList;
   faStar = faStar;
   Register(envent:any){
-    console.log("selecciono en resgitro: ",envent);
+    //console.log("selecciono en resgitro: ",envent);
     if(envent==1){
       this.selectRegister="RegisterCompras";
     }else{
@@ -65,7 +65,7 @@ export class PanelLeftComponent implements OnInit {
       url:this.selectCategory,
       id: "data",
     }
-    console.log("panel-left components");
+    //console.log("panel-left components");
     this.onSelectRegister.emit(enviar);
   }
   companyBarraleft(){
@@ -74,7 +74,7 @@ export class PanelLeftComponent implements OnInit {
       url:this.selectCategory,
       id: "data",
     }
-    console.log("panel-left components");
+    // console.log("panel-left components");
     this.onSelectRegister.emit(enviar);
   }
   PerfilBarraleft(){
@@ -83,7 +83,7 @@ export class PanelLeftComponent implements OnInit {
       url:this.selectCategory,
       id: "data",
     }
-    console.log("panel-left components");
+    // console.log("panel-left components");
     this.onSelectRegister.emit(enviar);
   }
 }

@@ -17,12 +17,12 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let pedido of registerArray">
-                                <td *ngIf="pedido.tipoOrden!='completada'">{{pedido.idOrden}}</td>
-                                <td *ngIf="pedido.tipoOrden!='completada'"> <span class="name">{{pedido.empresa}}/{{pedido.producto}}</span> </td>
-                                <td *ngIf="pedido.tipoOrden!='completada'">
+                                <td>{{pedido.idOrden}}</td>
+                                <td> <span class="name">{{pedido.empresa}}/{{pedido.producto}}</span> </td>
+                                <td>
                                     {{pedido.estadoOrden}}
                                 </td>
-                                <td *ngIf="pedido.tipoOrden!='completada'">
+                                <td>
                                     <span class="badge badge-complete" (click)="VerDetalles(pedido._id)">Ver</span>
                                 </td>
                             </tr>
@@ -117,14 +117,14 @@
                         <tbody>
 
 
-                            <tr *ngFor="let pedido of registerArray">
-                                <td *ngIf="pedido.tipoOrden=='completada'">{{pedido.idOrden}}</td>
-                                <td *ngIf="pedido.tipoOrden=='completada'"> <span class="name">{{pedido.empresa}}/{{pedido.producto}}</span> </td>
-                                <td *ngIf="pedido.tipoOrden=='completada'">
+                            <tr *ngFor="let pedido of comprasArray">
+                                <td>{{pedido.idOrden}}</td>
+                                <td> <span class="name">{{pedido.empresa}}/{{pedido.producto}}</span> </td>
+                                <td>
                                     {{pedido.estadoOrden}}
                                 </td>
-                                <td *ngIf="pedido.tipoOrden=='completada'">
-                                    <span class="badge badge-complete" (click)="VerDetalles(pedido._id)">Ver</span>
+                                <td>
+                                    <span class="badge badge-complete" (click)="VerDetallesCompras(pedido._id)">Ver</span>
                                 </td>
                             </tr>
                             

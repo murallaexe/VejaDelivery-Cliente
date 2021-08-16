@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     if(innerWidth<575){
       this.ocultar=false;
       this.OnOcultarBarra.emit(this.ocultar);
-      console.log("resolucion pantalla: ",innerWidth);
+      //console.log("resolucion pantalla: ",innerWidth);
     }
   }
   faBars=faBars;
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       this.OnOcultarBarra.emit(this.ocultar);
     }
     // console.log("Ocultar Barra");
-    console.log(this.ocultar);
+    //console.log(this.ocultar);
   }
   ocultarLogout(){
     if(this.ocultarLo==true){
@@ -41,10 +41,10 @@ export class HeaderComponent implements OnInit {
     }else{
      this.ocultarLo=true; 
     };
-    console.log("ocultar Logout")
+    //console.log("ocultar Logout")
   }
   retornarinformacionUsuario(data:any){
-    console.log("esta es la data en header.Component : ", data);
+    // console.log("esta es la data en header.Component : ", data);
   }
   logout(){
     this.authService.logout();

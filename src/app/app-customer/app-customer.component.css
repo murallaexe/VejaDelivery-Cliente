@@ -2681,3 +2681,26 @@ footer.site-footer {
   border: 2px solid #FB1D5A;
   color: white;
 }
+.postAb{
+  position: absolute;
+  display: block;
+  z-index: 1;
+  right: 0px;
+}
+.btn-motorista{
+  background-color: #fb1d5a;
+  color: white;
+  margin-right: 2px;
+  margin-top: 8px;
+}
+.btn-motorista:hover{
+  background-color: #C41F4C;
+  border-color: #fb1d5a;
+  color: white;
+  font-size: larger;
+}
+#mapa-mapbox{
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+}

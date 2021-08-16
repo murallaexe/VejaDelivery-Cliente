@@ -1,3 +1,7 @@
+<div style="padding: 0 1.875em;" *ngIf="ocultardatas" >
+    <!-- [ngClass]="{'visible':ocultardatas==false,'noVisible':ocultardatas==false}" -->
+    <div id="mapa-mapbox" [ngClass]="{'visible':selectProduct=='genereOrders', 'noVisible':selectProduct=='Combos'}"></div>
+</div>
 <div class="content" *ngIf="ocultardatas">
     <div class="animated fadeIn"  *ngFor="let Compania of productosArray">
         <div class="col-12">

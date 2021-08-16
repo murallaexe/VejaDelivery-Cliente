@@ -157,7 +157,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let tarjeta of tarjetasArray, let indice = index">
-                            <th scope="row">{{indice}}</th>
+                            <th scope="row">{{indice+1}}</th>
                             <td>{{tarjeta.numeroTarjeta}}</td>
                             <td>{{tarjeta.nombreTarjeta}}</td>
                             <td><button class="btn" (click)="eliminarTarjeta(tarjeta._id)"><fa-icon [icon]="faTrash"></fa-icon></button></td>

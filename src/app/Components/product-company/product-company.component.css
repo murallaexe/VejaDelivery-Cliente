@@ -293,3 +293,8 @@
 .displayflex .form-group .errorSpan{
     color: #FB1D5A;
 }
+#mapa-mapbox{
+    width: 100%;
+    height: 500px;
+    /* background-color: red; */
+}
