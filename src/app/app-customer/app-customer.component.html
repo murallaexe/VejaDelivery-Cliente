@@ -4,10 +4,12 @@
         <app-panel-left (onSelectRegister)="estadoComponentVisual($event)"></app-panel-left>
     </aside>
     <div id="right-panel" class="right-panel">
-        
+        <!-- boton Motorista -->
         <div class="col-12"*ngIf="ocultarMotorista" >
             <button class="btn btn-White-Edit" (click)="habilitarDivMotorista()">Motorista</button>
         </div>
+        <!-- fin boton Motorista -->
+        <!-- div para Motorista -->
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 postAb" *ngIf="ocultarMotoristaDiv">
             <div class="card ">
                 <div class="card-header">
@@ -40,6 +42,21 @@
                 </div>
             </div>
         </div>
+        <!-- div para Motorista -->
+        <!-- mapa de mapbox -->
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 postAb" [ngClass]="{'visible':mapaBox==true , 'noVisible':mapaBox!=true}" >
+            <div class="card ">
+                <div class="card-header">
+                    <strong class="card-title">MapBox-VEJA</strong>
+                </div>
+                <div class="card-body">
+                    <div style="padding: 0 1.875em;">
+                        <div id="mapa-mapbox"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mapa de mapbox -->
         <!-- Header-->
         <app-header #header (OnOcultarBarra)="ocultarBarraleft($event)"></app-header>
         <!-- /#header -->
@@ -86,6 +103,8 @@
         <!-- /.content -->
         <!-- Footer -->
         <!-- /.site-footer -->
-            
+        <app-footernav
+            (onFooter)="estadoComponentVisual($event)"
+        ></app-footernav>
     </div>
 </div>

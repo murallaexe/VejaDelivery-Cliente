@@ -29,6 +29,8 @@ import { MyPerfilComponent } from './Components/my-perfil/my-perfil.component';
 import {AuthGuard} from './auth.guard';
 import { TokenInterceptorService } from './Service/token-interceptor.service';
 import { CommonModule } from '@angular/common';
+import { FooternavComponent } from './Components/footernav/footernav.component';
+import { CartShoppingComponent } from './Components/cart-shopping/cart-shopping.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,8 @@ import { CommonModule } from '@angular/common';
     ProductCompanyComponent,
     RegisterComponent,
     MyPerfilComponent,
+    FooternavComponent,
+    CartShoppingComponent,
   ],
   imports: [
     BrowserModule,

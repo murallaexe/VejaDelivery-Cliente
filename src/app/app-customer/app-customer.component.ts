@@ -1,6 +1,6 @@
 import { calcPossibleSecurityContexts } from '@angular/compiler/src/template_parser/binding_parser';
 import { Component, OnInit, ViewChild,Injector, AfterViewInit, ViewChildren, AfterViewChecked, } from '@angular/core';
-// import * as Mapboxgl from 'mapbox-gl';
+import * as Mapboxgl from 'mapbox-gl';
 
 import { CategoryComponent } from '../Components/category/category.component';
 import { CompanyComponent } from '../Components/company/company.component';
@@ -10,7 +10,7 @@ import { ProductCompanyComponent } from '../Components/product-company/product-c
 import { RegisterComponent } from '../Components/register/register.component';
 import { AuthService } from '../Service/auth.service';
 import { CustomerService } from '../Service/customer.service';
-// import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-app-customer',
@@ -30,14 +30,14 @@ export class AppCustomerComponent implements OnInit{
 
   panelLeft:boolean= false;
   nada:String=""
-
+  mapaBox:boolean=false;
 
   // ocultarfalse:boolean=false;
   // ocultartrue:boolean=true;
   constructor(
     private authService:AuthService,
   ){}
-
+  mapa!:Mapboxgl.Map;
   contador:number=0;
   NombreUsuarioBienvenida:String="";
   usuarioLogin:any;
@@ -51,22 +51,21 @@ export class AppCustomerComponent implements OnInit{
   stadePage:String="login";
   tokenss:any="";
   ngOnInit(): void {
-    // (Mapboxgl as any).accessToken = environment.mapboxKey;
+    (Mapboxgl as any).accessToken = environment.mapboxKey;
 
-    // this.mapa = new Mapboxgl.Map({
-    //   container: 'mapa-mapbox',
-    //   style: 'mapbox://styles/mapbox/streets-v11',
-    //   center: [-87.1707396, 14.0865885],
-    //   zoom: 12.99
-    // });
-    // this.crearMarcador(-87.1707396, 14.0865885);
+    this.mapa = new Mapboxgl.Map({
+      container: 'mapa-mapbox',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-87.17168403184586, 14.087589347753948],
+      zoom: 12.99
+    });
+    this.crearMarcador(-87.17168403184586, 14.087589347753948);
 
 
 
     //console.log("usuario Login:" , this.usuarioLogin);
     var tokens = localStorage.getItem('token');
 
-    //sessionStorage.setItem('token',`${tokens}`);
     
     var token = {"token":tokens};
     this.tokenss = tokens;
@@ -94,6 +93,19 @@ export class AppCustomerComponent implements OnInit{
       }
     );
     //this.companyComponent.ocultardatas= false;
+  }
+  
+  crearMarcador(lng:number,lat:number){
+    var marker = new Mapboxgl.Marker({
+      draggable:true
+    })
+    .setLngLat([lng,lat])
+    .addTo(this.mapa);
+
+    marker.on('drag',()=>{
+      console.log(marker.getLngLat());
+      //this.productCompany
+    })
   }
   ocultarBarraleft(evento:any){
     //console.log("estado barra", evento);
@@ -158,6 +170,10 @@ export class AppCustomerComponent implements OnInit{
       this.myPerfilComponent.ocultardatas=false;
       this.registerComponent.selectRegiterFather(evento.url,true,this.idUsuario);
     };
+    if(evento.url=="gps"){
+      //console.log("Estado del los componentes", evento.url,this.idUsuario);
+      this.mapaBox=evento.data;
+    }
   }
   recibirUsuarioLogin(data:any){
     //console.log(data)

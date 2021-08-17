@@ -25,6 +25,7 @@ export class ProductCompanyComponent implements OnInit {
   horaInmediata:any;
   selectProduct:string="Combos";
   ProductoSelection="Company";
+  pedidoLista:string="";
   idCategoria:String="";
   idCompania:String="";
   idUsuario:String="";
@@ -40,8 +41,8 @@ export class ProductCompanyComponent implements OnInit {
   textErrorHora:String="";
   tiempoEntrega:any;
   numeroTarjeta:String='';
-  
-
+  habiltarDescripcion:boolean=false;
+  gpshablit:boolean=false;
 
   // formularios y ngModel
   direccion:String='';
@@ -92,7 +93,7 @@ export class ProductCompanyComponent implements OnInit {
     marker.on('drag',()=>{
       console.log(marker.getLngLat());
     })
-  }  
+  }
 
 
   activarDesc(){
@@ -139,9 +140,24 @@ export class ProductCompanyComponent implements OnInit {
     this.onProductoSelection.emit(enviar);
   }
   ordenarYa(idProduct:any,datas:any){
+    this.habiltarDescripcion=true;
     //console.log(datas);
     this.nombreProducto=datas.marcaProducto+" / "+datas.nombreProducto;
     this.precioProducto=datas.precio;
+    if(this.selectProduct=="Combos"){
+      this.selectProduct="genereOrders";
+    }else{
+      this.selectProduct="Combos";
+    }
+    //console.log(this.selectProduct);
+    //console.log("Id productos: ",idProduct);
+    this.idProductos=idProduct;
+  }
+  ordenarYaLista(idProduct:any,datas:any){
+    this.habiltarDescripcion=false;
+    //console.log(datas);
+    this.nombreProducto="ver Lista"+" / "+datas.nombreProducto;
+    this.precioProducto="por definir";
     if(this.selectProduct=="Combos"){
       this.selectProduct="genereOrders";
     }else{
@@ -266,7 +282,16 @@ export class ProductCompanyComponent implements OnInit {
     //console.log("idEmpresas es: ", this.idCompania);
     //console.log("idProductos es: ", this.idProductos);
     var idOrdenesClient ="";
+    var descripcion="";
     var IdOrden = 0;
+    let validar=false;
+    if(this.habiltarDescripcion==false){
+      descripcion=this.pedidoLista;
+      this.cantidadProducto='1';
+    }else{
+      descripcion=this.formInfoPersonal.value.DescripcionPedido; 
+    };
+    //console.log(descripcion,this.pedidoLista);
     this.ordenesService.ObtenerContador().subscribe(
       result=>{
         // console.log(result);
@@ -277,7 +302,6 @@ export class ProductCompanyComponent implements OnInit {
           //console.log(res);
           var enviarOrdenCollection = {
             idOrden:IdOrden,
-
             empresa: res.comercios[0].nombreEmpresa+" "+res.nombreCategoria,
             producto: this.nombreProducto,
             precioProducto:this.precioProducto,
@@ -292,7 +316,7 @@ export class ProductCompanyComponent implements OnInit {
             
             nombreCliente:this.formInfoPersonal.value.nombre,
             telefonCliente:this.formInfoPersonal.value.numTelefono,
-            descripcionPedido:this.formInfoPersonal.value.DescripcionPedido,
+            descripcionPedido:descripcion,
             direccioncliente:this.direccion,
           }
           var enviarUsuario = {
@@ -307,7 +331,7 @@ export class ProductCompanyComponent implements OnInit {
             tiempoEntrega:  this.tiempoEntrega,
             metodoPago:this.metodoPago,
             numeroPago:this.numeroTarjeta,
-
+            
             
             
             
@@ -369,5 +393,14 @@ export class ProductCompanyComponent implements OnInit {
     }else{
       this.buttonDisability=false;
     }
+  }
+  habiltarGps(){
+    if(this.gpshablit==false){
+      this.gpshablit=true;
+    }else{
+      this.gpshablit=false;
+    };
+    // console.log(this.gpshablit);
+    this.onProductoSelection.emit({url:'gps',data:this.gpshablit});
   }
 }

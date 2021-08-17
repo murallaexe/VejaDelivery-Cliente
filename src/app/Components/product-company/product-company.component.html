@@ -1,7 +1,7 @@
-<div style="padding: 0 1.875em;" *ngIf="ocultardatas" >
-    <!-- [ngClass]="{'visible':ocultardatas==false,'noVisible':ocultardatas==false}" -->
+<!-- <div style="padding: 0 1.875em;" *ngIf="ocultardatas" >
+    [ngClass]="{'visible':ocultardatas==false,'noVisible':ocultardatas==false}" 
     <div id="mapa-mapbox" [ngClass]="{'visible':selectProduct=='genereOrders', 'noVisible':selectProduct=='Combos'}"></div>
-</div>
+</div> -->
 <div class="content" *ngIf="ocultardatas">
     <div class="animated fadeIn"  *ngFor="let Compania of productosArray">
         <div class="col-12">
@@ -84,12 +84,12 @@
                                 <div>
                                     <div *ngIf="activarDescs">
                                         <!-- <p style="color: #FB1D5A;">Click</p> -->
-                                        <textarea name="" id="" cols="30" rows="10" style="width: 100%;margin: 10px 5px;" placeholder="Genere su lista"></textarea>
+                                        <textarea name="" [(ngModel)]="pedidoLista" name="pedidoLista" cols="30" rows="10" style="width: 100%;margin: 10px 5px;" placeholder="Genere su lista"></textarea>
                                     </div>
                                 </div>
                                 
                                 <div class="col-12">
-                                    <button type="button" class="btn" id="AddCart" (click)='ordenarYa(producto._id,producto)'>Realizar orden </button>
+                                    <button type="button" [disabled]="pedidoLista==''" class="btn" id="AddCart" (click)='ordenarYaLista(producto._id,producto)'>Realizar orden </button>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                                                         <label>Numero Teléfono</label>
                                                         <input type="text" formControlName="numTelefono" class="form-control" id="NameCategory" placeholder="Teléfono" value="+504-9900-0000">
                                                     </div>
-                                                    <div class="form-group col-12">
+                                                    <div class="form-group col-12" *ngIf="habiltarDescripcion">
                                                         <label>Descripción</label>
                                                         <textarea formControlName="DescripcionPedido" class="form-control" id="Description" placeholder="Ingrese si requiere algo en especial"></textarea>
                                                     </div>
@@ -160,7 +160,8 @@
                                                     <span class="col-12">ubicación </span>
                                                     <div class="form-group col-12">
                                                         <label>Dirección para la entrega</label>
-                                                        <input [(ngModel)]="direccion" name="direccion" type="text" class="form-control" id="NameCategory" placeholder="Dirección">    
+                                                        <input [(ngModel)]="direccion" name="direccion" type="text" class="form-control" id="NameCategory" placeholder="Dirección">
+                                                        <button class="btn btn-White-Edit" (click)="habiltarGps()">GPS</button>
                                                     </div>
                                                 </form>
                                             </div>
