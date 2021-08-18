@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { faSitemap, faCut , faShoppingBag, faIndustry,faGlassCheers, faCar, faCoffee,faHeartbeat,faLaptop,faPlus, faSuitcase,faHandshake, faThList, faStar} from '@fortawesome/free-solid-svg-icons';
+import { faSitemap, faShoppingBag, faPlus, faHome, faThList, faStar, faUserCircle} from '@fortawesome/free-solid-svg-icons';
+import { CategoriasService } from 'src/app/Service/categorias.service';
 
 @Component({
   selector: 'app-panel-left',
@@ -11,24 +12,27 @@ export class PanelLeftComponent implements OnInit {
   @Output() onSelectRegister = new EventEmitter();
   selectCategory:string="";
   selectCompany:string="";
-  constructor() { }
+  categoryArray:any;
+  constructor(
+    private categoriasService:CategoriasService
+  ){}
   leftCategory:boolean=true;
   leftRegister:boolean=true;
   ngOnInit(): void {
+    this.categoriasService.ObtenerCategorias().subscribe(
+      res=>{
+        //console.log(res);
+        this.categoryArray=res;
+      },
+      error=>console.log(error)
+    )
   }
   
   faSitemap = faSitemap; 
-  faCut = faCut;
   faShoppingBag = faShoppingBag; 
-  faIndustry =faIndustry;
-  faGlassCheers =faGlassCheers;
-  faCar = faCar;
-  faCoffee = faCoffee;
-  faHeartbeat =faHeartbeat;
-  faLaptop =faLaptop;
   faPlus =faPlus;
-  faSuitcase = faSuitcase;
-  faHandshake =faHandshake;
+  faHome = faHome;
+  faUserCircle =faUserCircle;
   faThList = faThList;
   faStar = faStar;
   Register(envent:any){
@@ -59,17 +63,17 @@ export class PanelLeftComponent implements OnInit {
       }
     }
   }
-  categoryBarraleft(){
-    this.selectCategory="Category";
+  categoryBarraleft(idcategoria:any){
+    this.selectCategory="Company";
     var enviar ={
       url:this.selectCategory,
-      id: "data",
+      id: idcategoria,
     }
     //console.log("panel-left components");
     this.onSelectRegister.emit(enviar);
   }
   companyBarraleft(){
-    this.selectCategory="Company";
+    this.selectCategory="Category";
     var enviar ={
       url:this.selectCategory,
       id: "data",

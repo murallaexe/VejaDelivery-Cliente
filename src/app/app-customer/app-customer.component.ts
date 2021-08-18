@@ -103,8 +103,8 @@ export class AppCustomerComponent implements OnInit{
     .addTo(this.mapa);
 
     marker.on('drag',()=>{
-      console.log(marker.getLngLat());
-      //this.productCompany
+      //console.log(marker.getLngLat());
+      this.productCompany.obtnerDataGps(marker.getLngLat());
     })
   }
   ocultarBarraleft(evento:any){
@@ -140,7 +140,7 @@ export class AppCustomerComponent implements OnInit{
       this.registerComponent.ocultardatas=false;
       this.myPerfilComponent.ocultardatas=false;
     }
-    if(evento.url=="CompanyAtras"){
+    if(evento.url=="Companys"){
       this.categoryComponent.ocultardatas=true;
       this.companyComponent.ocultardatas=false;
       this.productCompany.ocultardatas=false;

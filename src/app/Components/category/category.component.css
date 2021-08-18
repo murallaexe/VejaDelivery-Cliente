@@ -48,6 +48,7 @@ a, button {
     float: left;
     padding-left: 1.875em;
     padding-right: 1.875em;
+    padding-bottom: 3.875em;
     width: 100%;
 }
 @media (max-width: 1024px){

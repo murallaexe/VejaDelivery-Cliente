@@ -5,7 +5,7 @@
 <div class="content" *ngIf="ocultardatas">
     <div class="animated fadeIn"  *ngFor="let Compania of productosArray">
         <div class="col-12">
-            <button class="btn btn-White-Edit" *ngIf="selectProduct=='Combos'" (click)="irAtrasW()">Regresar a empresas</button>
+            <button class="btn btn-White-Edit" *ngIf="selectProduct=='Combos'" (click)="irAtrasW()"><fa-icon [icon]="faArrowAltCircleLeft"></fa-icon></button>
         </div>
         <div class="row" *ngIf="selectProduct=='Combos'">
             <div class="col-12" style="padding-bottom: 7px;">
@@ -14,14 +14,14 @@
                 </div>
             </div>
             <div class="col-12 WelcomeMenu">
-                <h1>Productos</h1>
+                <!-- <h1>Productos</h1> -->
                 <p>{{Compania.LemaEmpresa}}</p>
             </div>
             <div class="row" *ngIf="Compania.tipoEmpresa=='Productos'">
                 <!-- productos-->
                 <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl" *ngFor="let producto of Compania.productos">
                     <section class="card bg-white">
-                        <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/{{producto.imagenProducto}}'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
+                        <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/{{producto.imagenProducto}}'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 130px;">
                             <div class="media">
                                 <div class="media-body">
                                     <h2 class="text-white display-6">{{producto.nombreProducto}}</h2>
@@ -41,10 +41,10 @@
                                     </div>
                                 </nav>
                                 <div>
-                                    <div *ngIf="activarDescs">
+                                    <div style="height: 88px;" *ngIf="activarDescs">
                                         <p style="color: #FB1D5A;">{{producto.detalleProducto}}</p>
                                     </div>
-                                    <div *ngIf="activarPres">
+                                    <div style="height: 88px;" *ngIf="activarPres">
                                         <p style="color: #FB1D5A;">{{producto.precio}}</p>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                         <div id="OrdensUserModal" class="row">
                             <div class="ProdCOnte  col-12" style="padding: 0px;margin-top: 12px;">
                                 <div style="height: 375px;">
-                                    <img src="../../../assets/img/delivery/PizzaHut/PizzaHut.jpg" alt="" style="border-top-left-radius: 20px; width: 100%; border-top-right-radius: 20px; height: 374px;">
+                                    <img src="../../../assets/{{imagenComercio}}" alt="" style="border-top-left-radius: 20px; width: 100%; border-top-right-radius: 20px; height: 374px;">
                                 </div>    
                                     <div>
                                         <div class="BodyOrdes col-12 displayflex paddinCero">

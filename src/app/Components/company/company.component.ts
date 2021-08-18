@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {faMapMarker } from '@fortawesome/free-solid-svg-icons'
+import {faMapMarker,faChevronLeft,faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { CategoriasService } from 'src/app/Service/categorias.service';
 
 @Component({
@@ -29,6 +29,7 @@ export class CompanyComponent implements OnInit {
     )
   }
   faMapMarked=faMapMarker;
+  faArrowAltCircleLeft=faArrowAltCircleLeft;
   SelectCompany(idcompania:any){
     //console.log()
     var enviar ={
@@ -42,7 +43,7 @@ export class CompanyComponent implements OnInit {
   irAtras(){
     // location.reload();
     var enviar ={
-      url:"CompanyAtras",
+      url:"Companys",
       id: this.idCatetegoria,
     }
     //console.log("enviar : ",enviar);

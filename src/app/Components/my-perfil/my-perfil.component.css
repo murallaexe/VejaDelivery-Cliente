@@ -1,3 +1,20 @@
+
+@media (max-width: 1368px) {
+    .content{
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .content{
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 575px) {
+    .content{
+        margin-bottom: 45px;
+    }
+}
+
 .content {
     float: left;
     padding: 1.875em;

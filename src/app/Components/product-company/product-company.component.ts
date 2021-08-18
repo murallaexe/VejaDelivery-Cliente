@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, NgModule } from '@angular/core';
+import {faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import * as Mapboxgl from 'mapbox-gl';
@@ -16,6 +17,7 @@ export class ProductCompanyComponent implements OnInit {
   @Output() onProductoSelection = new EventEmitter();
   
   mapa!:Mapboxgl.Map;
+  faArrowAltCircleLeft=faArrowAltCircleLeft;
 
   constructor(
     private categoriasService:CategoriasService,
@@ -43,6 +45,7 @@ export class ProductCompanyComponent implements OnInit {
   numeroTarjeta:String='';
   habiltarDescripcion:boolean=false;
   gpshablit:boolean=false;
+  imagenComercio:string="";
 
   // formularios y ngModel
   direccion:String='';
@@ -57,8 +60,6 @@ export class ProductCompanyComponent implements OnInit {
     numTelefono : new FormControl(''),
     DescripcionPedido : new FormControl(''),
   });
-
-
   //datos para habilitar el Frontend y valid
   activarDescs:boolean=true;
   activarConts:boolean=false;
@@ -105,6 +106,7 @@ export class ProductCompanyComponent implements OnInit {
     this.activarPres=true;
   }
   selectFatherProduct(evento:any,dataocultar:any){
+    console.log(evento,dataocultar);
     //console.log("idUsuario : ",this.idUsuario);
     this.ocultardatas=dataocultar;
     this.idCategoria=evento.id;
@@ -112,16 +114,17 @@ export class ProductCompanyComponent implements OnInit {
     this.categoriasService.obtenercompania(this.idCategoria,this.idCompania).
     subscribe(
       res=>{
-        //console.log(res);
+        console.log(res);
         this.nombreEmpresa=res.comercios[0].nombreEmpresa;
         this.productosArray=res.comercios;
+        this.imagenComercio=res.comercios[0].imagenComercio;
         //console.log("Productos",res.comercios ,"_id :",res._id,"toda la data");
       },
       error=>console.log(error)
     );
     this.customerService.obtenerInformacionUnUsuario(this.idUsuario).subscribe(
       res=>{
-        //console.log(res);
+        console.log(res);
         this.usuarioArray=res;
         this.formInfoPersonal.get('nombre')?.setValue(res.nombreUsuario);
         this.formInfoPersonal.get('numTelefono')?.setValue(res.telefono);
@@ -402,5 +405,9 @@ export class ProductCompanyComponent implements OnInit {
     };
     // console.log(this.gpshablit);
     this.onProductoSelection.emit({url:'gps',data:this.gpshablit});
+  }
+  obtnerDataGps(data:any){
+    console.log(data);
+    this.direccion="Longitud : "+data.lng+", Latitud : "+data.lat;
   }
 }

@@ -2,7 +2,7 @@
     <div class="animated fadeIn" *ngIf="ocultardatas">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 card-size" *ngFor="let categoria of categorias">
-                <div class="card bg-white" style="padding: 0px 12px 0px 12px;" (click)="SelectCategory(categoria._id)">
+                <div class="card bg-white" style="padding: 0px 12px 0px 12px; height: 100%;" (click)="SelectCategory(categoria._id)">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faUtensils"></fa-icon>
                     </div>

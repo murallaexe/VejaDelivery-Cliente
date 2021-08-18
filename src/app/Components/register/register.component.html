@@ -1,11 +1,11 @@
-<div class="content">
+<div class="content marginContent">
     <div class="row" *ngIf="ocultardatas">
         <div class="col-lg-12" *ngIf="selectRegister=='RegisterList'"  style="padding: 0px 15px;">
             <div class="card" *ngIf="ocultarPedidos">
                 <div class="card-header">
                     <strong class="card-title">Lista estados de pedidos</strong>
                 </div>
-                <div class="table-stats order-table ov-h">
+                <div class="table-stats order-table ov-h" *ngIf="registerBol==true">
                     <table class="table ">
                         <thead>
                             <tr>
@@ -29,6 +29,9 @@
                         </tbody>
                     </table>
                 </div> <!-- /.table-stats -->
+                <div class="textError" *ngIf="registerBol==false">
+                    No se encontraron pedidos
+                </div>
             </div>
         </div>
         <div>
@@ -104,7 +107,7 @@
                 <div class="card-header">
                     <strong class="card-title">Lista de compras</strong>
                 </div>
-                <div class="table-stats order-table ov-h">
+                <div class="table-stats order-table ov-h" *ngIf="comprasBol==true">
                     <table class="table ">
                         <thead>
                             <tr>
@@ -132,6 +135,9 @@
                         </tbody>
                     </table>
                 </div> <!-- /.table-stats -->
+                <div class="textError" *ngIf="comprasBol==false">
+                    No se encontraron compras 
+                </div>
             </div>
         </div>
     </div>

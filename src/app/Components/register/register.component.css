@@ -28,6 +28,9 @@
     .ov-h{
         overflow:auto !important;
     }
+    .marginContent{
+        margin-bottom: 45px;
+    }
 }
 
     .content {
@@ -131,4 +134,11 @@
 .card-body .form-group span {
     color: #DF8D5A;
     font-weight: 600;
+}
+.textError{
+    font-size: xx-large;
+    color: #FB1D5A;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;   
 }

@@ -1,8 +1,8 @@
 <div class="content">
     <div class="animated fadeIn" *ngIf="ocultardatas">
         <div class="row">
-            <div class="col-12">
-                <button class="btn btn-White-Edit" (click)="irAtras()">Regresar a Categorias</button>
+            <div class="col-12 bordeBotton">
+                <button class="btn btn-White-Edit" (click)="irAtras()"><fa-icon [icon]="faArrowAltCircleLeft"></fa-icon></button>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 cardSize" *ngFor="let company of companys.comercios">
                 <section class="card bg-danger cardSection" (click)='SelectCompany(company._id)'>
@@ -37,108 +37,6 @@
                     </footer>
                 </section>
             </div>
-
-
-            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 cardSize" (click)='SelectCompany()'>
-                <section class="card bg-danger cardSection">
-                    <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/img/delivery/Campero.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
-                        <div class="media row">
-                            <button class="col-4 col-sm-4 col-md-6 col-lg-4 col-xl-4 btn">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="../../../assets/img/delivery/logo Campero.png">
-                            </button>
-                            <div class="media-body col-8 col-sm-8 col-md-6 col-lg-8 col-xl-8">
-                                <h2 class="text-white display-6">Pollo campero</h2>
-                                <p class="text-light">Restaurantes</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="weather-category twt-category">
-                        <ul>
-                            <li class="active">
-                                <h5>10</h5>
-                                Sucursales
-                            </li>
-                            <li>
-                                <h5>30</h5>
-                                Productos
-                            </li>
-                        </ul>
-                    </div>
-                    <footer class="twt-footer">
-                        <button class="btn">
-                            <fa-icon [icon]="faMapMarked"></fa-icon>
-                        </button>
-                        Tegucigalpa,Honduras.
-                    </footer>
-                </section>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 cardSize" (click)='SelectCompany()'>
-                <section class="card bg-danger cardSection">
-                    <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/img/delivery/dunkin donuts.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
-                        <div class="media row">
-                            <button class="col-4 col-sm-4 col-md-6 col-lg-4 col-xl-4 btn">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="../../../assets/img/delivery/logo dunkin donuts.png">
-                            </button>
-                            <div class="media-body col-8 col-sm-8 col-md-6 col-lg-8 col-xl-8">
-                                <h2 class="text-white display-6">dunkin donuts</h2>
-                                <p class="text-light">Restaurantes</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="weather-category twt-category">
-                        <ul>
-                            <li class="active">
-                                <h5>10</h5>
-                                Sucursales
-                            </li>
-                            <li>
-                                <h5>30</h5>
-                                Productos
-                            </li>
-                        </ul>
-                    </div>
-                    <footer class="twt-footer">
-                        <button class="btn">
-                            <fa-icon [icon]="faMapMarked"></fa-icon>
-                        </button>
-                        Tegucigalpa,Honduras.
-                    </footer>
-                </section>
-            </div>
-            
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 cardSize" (click)='SelectCompany()'>
-                <section class="card bg-danger cardSection">
-                    <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/img/delivery/Supermercados-la-Colonia.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; ">
-                        <div class="media row">
-                            <button class="col-4 col-sm-4 col-md-6 col-lg-4 col-xl-4 btn">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="../../../assets/img/delivery/logo Supermercados-la-Colonia.png">
-                            </button>
-                            <div class="media-body col-8 col-sm-8 col-md-6 col-lg-8 col-xl-8">
-                                <h2 class="text-white display-6">La Colonia</h2>
-                                <p class="text-light">Supermercado</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="weather-category twt-category">
-                        <ul>
-                            <li class="active">
-                                <h5>32</h5>
-                                Sucursales
-                            </li>
-                            <li>
-                                <h5>8,000</h5>
-                                Productos
-                            </li>
-                        </ul>
-                    </div>
-                    <footer class="twt-footer">
-                        <button class="btn">
-                            <fa-icon [icon]="faMapMarked"></fa-icon>
-                        </button>
-                        Tegucigalpa,Honduras.
-                    </footer>
-                </section>
-            </div> -->
         </div><!-- .row -->
     </div><!-- .animated -->
 </div>

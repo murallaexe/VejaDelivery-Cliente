@@ -14,7 +14,9 @@ export class RegisterComponent implements OnInit {
   ocultarCompras:boolean=true;
   ocultarSerialTarjeta:boolean=true;
   registerArray:any=[];
+  registerBol:boolean=false;
   comprasArray:any=[];
+  comprasBol:boolean=false;
   registerArrayOne:any=[];
   constructor(private customerService:CustomerService) { }
 
@@ -41,10 +43,20 @@ export class RegisterComponent implements OnInit {
             this.registerArray[ind]=res.listaPedidos[i];
             ind++;
           }
+        };
+        if(this.registerArray.length==0){
+          this.registerBol=false;
+        }else{
+          this.registerBol=true;
+        }
+        if(this.comprasArray.length==0){
+          this.comprasBol=false;
+        }else{
+          this.comprasBol=true;
         }
       },
       error=>console.log(error)
-    )
+    );
   }
   VerDetalles(idRegster:any){
     this.ocultarDetalles=true;
