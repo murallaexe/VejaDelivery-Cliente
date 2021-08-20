@@ -229,6 +229,7 @@ export class AppCustomerComponent implements OnInit{
     this.customerService.solicitudMotorista(this.idUsuario).subscribe(
       res=>{
         console.log(res);
+        this.modalService.dismissAll();
       },
       error=>{
         console.log(error);

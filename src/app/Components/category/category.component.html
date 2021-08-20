@@ -2,14 +2,14 @@
     <div class="animated fadeIn" *ngIf="ocultardatas">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 card-size" *ngFor="let categoria of categorias">
-                <div class="card bg-white" style="padding: 0px 12px 0px 12px; height: 100%;" (click)="SelectCategory(categoria._id)">
+                <div class="card bg-white" style="padding: 0px 12px 0px 12px; height: 100%; border-radius: 15px;" (click)="SelectCategory(categoria._id)">
                     <div class="card-header">
                         <fa-icon [icon]="faUser"></fa-icon><strong class="fa"> App</strong><fa-icon [icon]="faUtensils"></fa-icon>
                     </div>
-                    <div class="card-header user-header alt bg-dark ">
+                    <div class="card-header user-header alt" [ngStyle]="{'background-color':categoria.bgColor}">
                         <div class="media">
                             <div class="media-body">
-                                <button class="btn col-12" (click)="SelectCategory(categoria._id)" ><h2 class="text-light display-6">{{categoria.nombreCategoria}}</h2></button>
+                                <button class="btn col-12" (click)="SelectCategory(categoria._id)" ><h2 class="text-light display-6 FontH2">{{categoria.nombreCategoria}}</h2></button>
                                 
                             </div>
                         </div>

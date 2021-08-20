@@ -67,3 +67,7 @@ a, button {
 .cardCategory{
     height: inherit !important;
 }
+.col-12 .FontH2{
+    font-size: 22px;
+    font-weight: 800;
+}

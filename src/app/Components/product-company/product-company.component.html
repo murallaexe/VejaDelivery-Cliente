@@ -15,12 +15,12 @@
             </div>
             <div class="col-12 WelcomeMenu">
                 <!-- <h1>Productos</h1> -->
-                <p>{{Compania.LemaEmpresa}}</p>
+                <!-- <p class="show">{{Compania.LemaEmpresa}}</p> -->
             </div>
             <div class="row" *ngIf="Compania.tipoEmpresa=='Productos'">
                 <!-- productos-->
                 <div class="col-md-4 col-12 col-sm-6 col-lg-6 col-xl-4" data-toggle="modal" data-target="#exampleModalXl" *ngFor="let producto of Compania.productos">
-                    <section class="card bg-white">
+                    <section class="card bg-white margin-botton">
                         <div class="twt-feed blue-bg" style=" background-image: url('../../../assets/{{producto.imagenProducto}}'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 130px;">
                             <div class="media">
                                 <div class="media-body">
@@ -32,7 +32,6 @@
                         
                         <div class="card-body">
                             <div class="custom-tab">
-
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <button (click)="activarDesc()" [ngClass]="{'active': activarDescs}" class="nav-item nav-link" id="custom-nav-home-tab">Descripción</button>

@@ -24,6 +24,7 @@ export class MyPerfilComponent implements OnInit {
     colonia : new FormControl(''),
     numTelefono : new FormControl(''),
     descripcion : new FormControl(''),
+    UrlFoto : new FormControl(''),
   });
   formularioUsuacioAcceso = new FormGroup({
     apodo : new FormControl(''),
@@ -47,17 +48,18 @@ export class MyPerfilComponent implements OnInit {
   faTrash=faTrash;
 
   informacionUser(data:String){
-    //console.log("id en myPerfilComponent: ", data);
+    // console.log("id en myPerfilComponent: ", data);
     this.idUusario=data;
     this.customerService.obtenerInformacionUnUsuario(data).subscribe(
       res=>{
-        //console.log(res);
+        console.log(res);
         this.formularioInfoUsuario.get('nombre')?.setValue(res.nombreUsuario);
         this.formularioInfoUsuario.get('pais')?.setValue(res.pais);
         this.formularioInfoUsuario.get('ciudad')?.setValue(res.ciudad);
         this.formularioInfoUsuario.get('colonia')?.setValue(res.coloniaProvicia);
         this.formularioInfoUsuario.get('numTelefono')?.setValue(res.telefono);
         this.formularioInfoUsuario.get('descripcion')?.setValue(res.descripcion);
+        this.formularioInfoUsuario.get('UrlFoto')?.setValue(res.UrlFoto);
         
         this.formularioUsuacioAcceso.get('apodo')?.setValue(res.apodo);
         this.formularioUsuacioAcceso.get('email')?.setValue(res.correoUsuario);
@@ -80,6 +82,7 @@ export class MyPerfilComponent implements OnInit {
       coloniaProvicia : this.formularioInfoUsuario.value.colonia ,
       telefono : this.formularioInfoUsuario.value.numTelefono ,
       apodo : this.formularioUsuacioAcceso.value.apodo ,
+      UrlFoto: this.formularioInfoUsuario.value.UrlFoto
     };
     //console.log("id usuario :", this.idUusario,enviar);
     // console.log("id data info: ", this.formularioInfoUsuario.value, this.formularioUsuacioAcceso.value);
