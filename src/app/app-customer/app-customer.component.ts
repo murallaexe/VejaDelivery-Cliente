@@ -85,12 +85,15 @@ export class AppCustomerComponent implements OnInit{
         this.idUsuario=res.authData.data._id;
         this.productCompany.idUsuario=res.authData.data._id;
         this.ocultarSolicitudDiv=res.authData.data.solicitud;
+        if(res.authData.data.tipoUsuario=="administrador"){
+          location.href= ('http://localhost:4203/');
+        };
         if(res.authData.data.tipoUsuario=="motorista"){
           this.ocultarMotorista=true;
 
         }else{
           this.ocultarMotorista=false;
-        }
+        };
       },
       error=>{
         console.log(error);
