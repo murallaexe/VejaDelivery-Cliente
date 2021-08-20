@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   @Output() OnOcultarBarra = new EventEmitter();
   ocultar:boolean=false;
   nombreUsuarioHeader:String="";
+  urlImagenUsuario:string="";
   ocultarLo:boolean=false;
   constructor(private authService:AuthService) { }
 

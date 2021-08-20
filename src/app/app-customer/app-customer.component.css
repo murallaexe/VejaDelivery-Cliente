@@ -2681,6 +2681,21 @@ footer.site-footer {
   border: 2px solid #FB1D5A;
   color: white;
 }
+
+.btn-Solid{
+  background-color: #ff2e44;
+  border-radius: 15px;
+  border: 2px solid #ff2e44;
+  margin-left: 32px;
+  display: flex;
+  color: white;
+  font-weight: 600;
+}
+.btn-Solid:hover,.btn-Solid:focus{
+  background-color: white;
+  border: 2px solid #FB1D5A;
+  color: #FB1D5A;
+}
 .postAb{
   position: absolute;
   display: block;
@@ -2710,4 +2725,9 @@ footer.site-footer {
 
 .noVisible{
   display: none !important;
+}
+.modal-body .h3Modal{
+  color: #212529;
+  margin-bottom: 30px;
+  font-size: large;
 }

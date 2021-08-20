@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
         // console.log(res.listaPedidos);
         var ind=0, ind2=0;
         for(var i=0;i<res.listaPedidos.length;i++){
-          if(res.listaPedidos[i].estadoOrden=='completada'){
+          if(res.listaPedidos[i].estadoOrden=='destino'){
             this.comprasArray[ind2]=res.listaPedidos[i];
             ind2++;
           }else{

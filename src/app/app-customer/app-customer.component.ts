@@ -11,6 +11,7 @@ import { RegisterComponent } from '../Components/register/register.component';
 import { AuthService } from '../Service/auth.service';
 import { CustomerService } from '../Service/customer.service';
 import { environment } from 'src/environments/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-app-customer',
@@ -36,6 +37,8 @@ export class AppCustomerComponent implements OnInit{
   // ocultartrue:boolean=true;
   constructor(
     private authService:AuthService,
+    private modalService:NgbModal,
+    private customerService:CustomerService,
   ){}
   mapa!:Mapboxgl.Map;
   contador:number=0;
@@ -44,6 +47,7 @@ export class AppCustomerComponent implements OnInit{
   ocultarMotorista:boolean=true;
   ocultarPanelLeft:boolean=true;
   ocultarMotoristaDiv:boolean=false;
+  ocultarSolicitudDiv:boolean=true;
   categoryVisual:boolean=true;
   companyVisual:boolean=false;
   idUsuario:any;
@@ -72,13 +76,15 @@ export class AppCustomerComponent implements OnInit{
     //console.log(token)
     this.authService.authe(token).subscribe(
       res=>{
-        //console.log(res);
-        //para el nombre
+        // console.log(res.authData.data);
+        // para el nombre
         this.headerComponent.nombreUsuarioHeader=res.authData.data.nombreUsuario;
+        this.headerComponent.urlImagenUsuario=res.authData.data.UrlFoto;
         var cadena = res.authData.data.nombreUsuario.split(" ");
         this.NombreUsuarioBienvenida=cadena[0];
         this.idUsuario=res.authData.data._id;
         this.productCompany.idUsuario=res.authData.data._id;
+        this.ocultarSolicitudDiv=res.authData.data.solicitud;
         if(res.authData.data.tipoUsuario=="motorista"){
           this.ocultarMotorista=true;
 
@@ -196,7 +202,34 @@ export class AppCustomerComponent implements OnInit{
     }
   }
   irMotorista(){
-    location.href= ('http://localhost:4204/');
+    location.href= ('http://localhost:4202/');
     //window.location.href = 'http://localhost:4204/';
+  }
+  ModalSolicitarSerMoto(modal:any){
+    this.modalService.open(
+      modal,
+      {
+        size:'xs',
+        centered:false
+      }
+    );
+  }
+  checkedButton:boolean=false;
+  cambioChecked(){
+    var element = <HTMLInputElement> document.getElementById("is3dCheckBox");
+    var isChecked = element.checked;
+    this.checkedButton = isChecked;
+    console.log(isChecked);
+  }
+  enviarSolicitud(){
+    console.log(this.idUsuario);
+    this.customerService.solicitudMotorista(this.idUsuario).subscribe(
+      res=>{
+        console.log(res);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
 }

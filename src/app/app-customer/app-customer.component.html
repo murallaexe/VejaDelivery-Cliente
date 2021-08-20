@@ -8,6 +8,10 @@
         <div class="col-12"*ngIf="ocultarMotorista" >
             <button class="btn btn-White-Edit" (click)="habilitarDivMotorista()">Motorista</button>
         </div>
+        <div class="col-12" *ngIf="ocultarSolicitudDiv==false">
+            <h6 style="margin-left: 32px;">Solicitar Ser Motorista</h6>
+            <button class="btn btn-Solid"  (click)="ModalSolicitarSerMoto(modalSolicitud)">Solicitud</button>
+        </div>
         <!-- fin boton Motorista -->
         <!-- div para Motorista -->
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 postAb" *ngIf="ocultarMotoristaDiv">
@@ -108,3 +112,25 @@
         ></app-footernav>
     </div>
 </div>
+
+<ng-template #modalSolicitud let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"> Solicitud para motorista</h4>
+        <!-- <button type="button" class="btn-outline-success" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button> -->
+    </div>
+    <div class="modal-body">
+        <h3 class="h3Modal">¿Quieres formar parte de nuestra comunidad de motorista? Veja, te proporciona horarios flexibles y paga por cada transacción.</h3>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="is3dCheckBox" (click)="cambioChecked()">
+            <label class="form-check-label" for="flexCheckDefault">
+                Aceptar términos y condiciones 
+            </label>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" *ngIf="checkedButton==true" (click)="enviarSolicitud()">Enviar</button>
+        <button type="button" class="btn btn-outline-success" (click)="modal.close('Boton Cerrrar')">Cerrar</button>
+    </div>
+</ng-template>

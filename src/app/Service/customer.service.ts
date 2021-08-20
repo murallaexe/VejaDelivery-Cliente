@@ -68,4 +68,8 @@ export class CustomerService {
   obtenerRegistro(idUsuario:any):Observable<any>{
     return this.httpClient.get(`http://localhost:8888/usuarios/${idUsuario}/registro`,{});
   }
+  solicitudMotorista(idUsuario:any):Observable<any>{
+    return this.httpClient.put(`http://localhost:8888/usuarios/${idUsuario}/estadoMotorista`,{
+    })
+  }
 }
