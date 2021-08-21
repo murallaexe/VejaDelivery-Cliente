@@ -1,3 +1,12 @@
+.ver{
+    display: block;
+}
+
+.noVer{
+    display: none;
+}
+
+
 @media (min-width: 1680px){
     .content {
         padding-bottom: 4.25em !important;

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output, NgModule } from '@angular/core';
-import {faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { Component, EventEmitter, OnInit, Output, NgModule, ViewChild } from '@angular/core';
+import {faArrowAltCircleLeft, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import * as Mapboxgl from 'mapbox-gl';
@@ -8,6 +8,7 @@ import { CategoriasService } from 'src/app/Service/categorias.service';
 import { CustomerService } from 'src/app/Service/customer.service';
 import { OrdenesService } from 'src/app/Service/ordenes.service';
 import { environment } from 'src/environments/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-product-company',
   templateUrl: './product-company.component.html',
@@ -15,7 +16,18 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductCompanyComponent implements OnInit {
   @Output() onProductoSelection = new EventEmitter();
+  @Output() onSumarCarrito = new EventEmitter();
   
+
+  //para el carrito
+  @ViewChild('modalCantidadProducto') modalCantidadProducto!: NgbModal;
+  carrito:any=[];
+  faCircle = faCircle;
+  cantidadPedir:Number=0;
+  productoSeleccionado:any=[];
+  comprarCarrito:boolean=false;
+
+
   mapa!:Mapboxgl.Map;
   faArrowAltCircleLeft=faArrowAltCircleLeft;
 
@@ -23,6 +35,7 @@ export class ProductCompanyComponent implements OnInit {
     private categoriasService:CategoriasService,
     private customerService:CustomerService,
     private ordenesService:OrdenesService,
+    private modalServices: NgbModal
   ){}
   horaInmediata:any;
   selectProduct:string="Combos";
@@ -409,5 +422,30 @@ export class ProductCompanyComponent implements OnInit {
   obtnerDataGps(data:any){
     console.log(data);
     this.direccion="Longitud : "+data.lng+", Latitud : "+data.lat;
+  }
+
+  /// codigo para el carrito de compras
+
+  infoProductoSeleccionado(producto:any){
+    this.productoSeleccionado = producto;
+    this.modalServices.open(this.modalCantidadProducto)
+    console.log({"producto:":this.productoSeleccionado})
+  }
+
+
+  agregarCarrito(){
+    this.modalServices.dismissAll();
+    this.productoSeleccionado['cantidadPedir']= this.cantidadPedir;
+    this.carrito.push(this.productoSeleccionado);
+    console.log('pedidos en el carrito:', this.carrito)
+    this.onSumarCarrito.emit(this.carrito.length)
+  }
+
+  verCarritoCompras(e:any){
+    if (this.comprarCarrito) {
+      this.comprarCarrito = false;
+    }else if (this.comprarCarrito == false) {
+      this.comprarCarrito = e.ver;  
+    }
   }
 }

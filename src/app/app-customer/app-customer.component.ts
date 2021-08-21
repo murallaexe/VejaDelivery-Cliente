@@ -12,6 +12,8 @@ import { AuthService } from '../Service/auth.service';
 import { CustomerService } from '../Service/customer.service';
 import { environment } from 'src/environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FooternavComponent } from '../Components/footernav/footernav.component';
+import { CarritoComponent } from '../Components/carrito/carrito.component';
 
 @Component({
   selector: 'app-app-customer',
@@ -26,6 +28,7 @@ export class AppCustomerComponent implements OnInit{
   @ViewChild('Myperfils') myPerfilComponent!:MyPerfilComponent;
   @ViewChild("company") public companyComponent !: CompanyComponent;
   @ViewChild('category') categoryComponent!:CategoryComponent;
+  @ViewChild('footer') footernavComponent!:FooternavComponent;
 
   // mapa!:Mapboxgl.Map;
 
@@ -236,4 +239,17 @@ export class AppCustomerComponent implements OnInit{
       }
     )
   }
+
+  /// para el carrito
+
+  sumarCarrito(e:any){
+    console.log('se ejecuto el evento', e)
+    this.footernavComponent.setCantidadCarrito(e);
+  }
+
+  verCarritoCompras(e:any){
+    this.productCompany.verCarritoCompras(e);
+  }
+
+
 }

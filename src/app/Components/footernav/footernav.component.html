@@ -1,6 +1,9 @@
 <nav class="navbar fixed-bottom nav-own">
     <!-- <fa-icon [icon]="faTruck"></fa-icon> -->
-    <button type="button" class="btn " (click)="home()"><fa-icon class="icon-nav fa-lg" [icon]="faHome"></fa-icon> </button>
     <button type="button" class="btn " (click)="myProfile()"><fa-icon class="icon-nav fa-lg" [icon]="faShopping"></fa-icon> </button>
-    <button type="button" class="btn " (click)="register()"><fa-icon class="icon-nav fa-lg" [icon]="faClipboard"></fa-icon> </button>
+    <button type="button" class="btn " (click)="home()"><fa-icon class="icon-nav fa-lg" [icon]="faHome"></fa-icon> </button>
+    <button type="button" class="btn " (click)="carrito()">
+        <div class="circulo bg-i"><span class="bg-i"><small>{{cantidadCarrito}}</small></span></div> 
+        <fa-icon class="icon-nav fa-lg" [icon]="faShoppingCart"></fa-icon> 
+    </button>
 </nav>

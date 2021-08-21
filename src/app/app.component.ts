@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FooternavComponent } from './Components/footernav/footernav.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,9 +8,6 @@ import { Routes, RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'DeliveryApp';
-
-
-
 
   
 }

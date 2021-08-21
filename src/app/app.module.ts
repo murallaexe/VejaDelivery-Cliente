@@ -31,6 +31,8 @@ import { TokenInterceptorService } from './Service/token-interceptor.service';
 import { CommonModule } from '@angular/common';
 import { FooternavComponent } from './Components/footernav/footernav.component';
 import { CartShoppingComponent } from './Components/cart-shopping/cart-shopping.component';
+import { CarritoComponent } from './Components/carrito/carrito.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import { CartShoppingComponent } from './Components/cart-shopping/cart-shopping.
     MyPerfilComponent,
     FooternavComponent,
     CartShoppingComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

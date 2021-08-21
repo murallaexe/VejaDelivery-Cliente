@@ -99,7 +99,13 @@
             <app-company #company (onSelectCompany)="estadoComponentVisual($event)"></app-company>
         <!-- /. compania-->
         <!-- para ordenar y comprar productos-->
-            <app-product-company #Product (onProductoSelection)="estadoComponentVisual($event)"></app-product-company>
+            <app-product-company 
+                #Product 
+                (onProductoSelection)="estadoComponentVisual($event)"
+                (onSumarCarrito)="sumarCarrito($event)"
+                (onVerCarritoCompras)="verCarritoCompras($event)"
+            
+            ></app-product-company>
         <!-- /. ordenar y comprar productos-->
             <app-register #regiter ></app-register>
         <!-- perfil -->
@@ -107,7 +113,9 @@
         <!-- /.content -->
         <!-- Footer -->
         <!-- /.site-footer -->
+        <app-carrito></app-carrito>
         <app-footernav
+            #footer
             (onFooter)="estadoComponentVisual($event)"
         ></app-footernav>
     </div>

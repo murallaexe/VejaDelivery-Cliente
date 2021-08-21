@@ -40,15 +40,22 @@
                                     </div>
                                 </nav>
                                 <div>
-                                    <div style="height: 88px;" *ngIf="activarDescs">
+                                    <div style="height: 45px;" *ngIf="activarDescs">
                                         <p style="color: #FB1D5A;">{{producto.detalleProducto}}</p>
                                     </div>
-                                    <div style="height: 88px;" *ngIf="activarPres">
+                                    <div style="height: 45px;" *ngIf="activarPres">
                                         <p style="color: #FB1D5A;">{{producto.precio}}</p>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="button" class="btn" id="AddCart" (click)='ordenarYa(producto._id,producto)'>Realizar orden</button>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button type="button" class="btn" id="AddCart" (click)='infoProductoSeleccionado(producto)'>Agregar Carrito</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" class="btn" id="AddCart" (click)='ordenarYa(producto._id,producto)'>Realizar orden</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -152,6 +159,18 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div *ngIf="carrito.length > 0" class="row">
+                                                <div class="col-12">
+                                                    Lista de Productos en el pedido
+                                                </div>
+                                                <div class="col-12">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr *ngFor="let producto of carrito" > {{producto.nombreProducto}} </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 paddinCero">
                                             <div class="modal-content col-12" id="QuantityOrdensRequest" style="padding: 12px;">
@@ -227,3 +246,26 @@
         </div>
     </div><!-- .animated -->
 </div>
+
+
+
+<!-- modal para cantidad de productos a pedir -->
+<ng-template #modalCantidadProducto>
+    <div class="modal-header">
+        <h5 class="modal-title">Cantidad Producto</h5>
+    </div>
+    <div class="modal-body">
+        <label for="" class="pb-2"><h6>Cantidad de producto a pedir</h6></label>
+        <input type="text" class="form-control" [(ngModel)]="cantidadPedir">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="agregarCarrito()">agregar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+</ng-template>
+
+
+
+<section [ngClass]="{'ver': comprarCarrito == true, 'noVer': comprarCarrito == false}" >
+    <h2>comprar cosas del carrito</h2>
+</section>
