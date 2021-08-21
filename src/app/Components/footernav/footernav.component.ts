@@ -31,7 +31,12 @@ export class FooternavComponent implements OnInit {
   ngOnInit(): void {
     
     this.carritoArray=localStorage.getItem('carrito');
-    this.cantidadCarrito=JSON.parse(this.carritoArray).length;
+    // console.log(this.carritoArray);
+    if(this.carritoArray==null){
+
+    }else{
+      this.cantidadCarrito=JSON.parse(this.carritoArray).length;
+    }
   }
   home(){
     this.onFooter.emit({url:'Category'});
@@ -44,7 +49,7 @@ export class FooternavComponent implements OnInit {
   }
 
   carrito(){
-    console.log('ver carrito de compra');
+    // console.log('ver carrito de compra');
     this.onFooter.emit({url:'cartShopping',data:'data'});
   }
 

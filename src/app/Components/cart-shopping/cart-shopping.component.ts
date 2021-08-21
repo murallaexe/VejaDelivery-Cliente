@@ -32,24 +32,27 @@ export class CartShoppingComponent implements OnInit {
     this.carritoArray=localStorage.getItem('carrito');
     this.carritoArray=JSON.parse(this.carritoArray);
     // console.log(this.carritoArray);
+    if(this.carritoArray==null){
 
-    for(var i=0;i<this.carritoArray.length;i++){
-      this.totalPrecio= this.totalPrecio+this.carritoArray[i].precio;
-      this.productosArray[i] ={
-        empresa: this.carritoArray[i].nombreEmpresa,
-        producto: this.carritoArray[i].marcaProducto+" / "+this.carritoArray[i].nombreProducto,
-        precioProducto: this.carritoArray[i].precio,
-        cantidadProducto: this.carritoArray[i].cantidadPedir,
-      }
+    }else{
+      for(var i=0;i<this.carritoArray.length;i++){
+        this.totalPrecio= this.totalPrecio+this.carritoArray[i].precio;
+        this.productosArray[i] ={
+          empresa: this.carritoArray[i].nombreEmpresa,
+          producto: this.carritoArray[i].marcaProducto+" / "+this.carritoArray[i].nombreProducto,
+          precioProducto: this.carritoArray[i].precio,
+          cantidadProducto: this.carritoArray[i].cantidadPedir,
+        }
+      };
     }
-    console.log(this.totalPrecio);
+    // console.log(this.totalPrecio);
   }
   ObtenerData(data:any){
-    console.log(data);
+    // console.log(data);
     this.idusuario=data
     this.customerService.obtenerInformacionUnUsuario(data).subscribe(
       res=>{
-        console.log(res);
+        // console.log(res);
         this.tarjetasArray=res.tarjetas;
         this.nombre=res.nombreUsuario;
         this.numeroTel=res.telefono;
@@ -75,7 +78,7 @@ export class CartShoppingComponent implements OnInit {
     }
   }
   guardarPedido(){
-    console.log("entro");
+    // console.log("entro");
     var IdOrden = 0;
     var tipoEntrega='Inmediata';
       var fecha = new Date();
@@ -108,16 +111,16 @@ export class CartShoppingComponent implements OnInit {
           descripcionPedido:this.description,
           direccioncliente:this.direccion,
         }
-        console.log(enviarOrdenCollection);
+        // console.log(enviarOrdenCollection);
         
         this.ordenesService.GuardarOrdenArray(enviarOrdenCollection).subscribe(
           res=>{
             
-            console.log(res);
+            // console.log(res);
             for(let prod of this.productosArray){ 
               this.ordenesService.GuardarOrdenProductosArray(res._id,prod).subscribe(
                 resultad=>{
-                  console.log(resultad);
+                  // console.log(resultad);
                 },
                 error=>console.log(error)
               )

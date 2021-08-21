@@ -119,7 +119,7 @@ export class ProductCompanyComponent implements OnInit {
     this.activarPres=true;
   }
   selectFatherProduct(evento:any,dataocultar:any){
-    console.log(evento,dataocultar);
+    // console.log(evento,dataocultar);
     //console.log("idUsuario : ",this.idUsuario);
     this.ocultardatas=dataocultar;
     this.idCategoria=evento.id;
@@ -127,7 +127,7 @@ export class ProductCompanyComponent implements OnInit {
     this.categoriasService.obtenercompania(this.idCategoria,this.idCompania).
     subscribe(
       res=>{
-        console.log(res);
+        // console.log(res);
         this.nombreEmpresa=res.comercios[0].nombreEmpresa;
         this.productosArray=res.comercios;
         this.imagenComercio=res.comercios[0].imagenComercio;
@@ -137,7 +137,7 @@ export class ProductCompanyComponent implements OnInit {
     );
     this.customerService.obtenerInformacionUnUsuario(this.idUsuario).subscribe(
       res=>{
-        console.log(res);
+        // console.log(res);
         this.usuarioArray=res;
         this.formInfoPersonal.get('nombre')?.setValue(res.nombreUsuario);
         this.formInfoPersonal.get('numTelefono')?.setValue(res.telefono);
@@ -420,7 +420,7 @@ export class ProductCompanyComponent implements OnInit {
     this.onProductoSelection.emit({url:'gps',data:this.gpshablit});
   }
   obtnerDataGps(data:any){
-    console.log(data);
+    // console.log(data);
     this.direccion="Longitud : "+data.lng+", Latitud : "+data.lat;
   }
 
@@ -430,7 +430,7 @@ export class ProductCompanyComponent implements OnInit {
     this.productoSeleccionado = producto;
     this.productoSeleccionado['nombreEmpresa']= nombreEmpres;
     this.modalServices.open(this.modalCantidadProducto)
-    console.log({"producto:":this.productoSeleccionado})
+    // console.log({"producto:":this.productoSeleccionado})
   }
 
 
@@ -438,7 +438,7 @@ export class ProductCompanyComponent implements OnInit {
     this.modalServices.dismissAll();
     this.productoSeleccionado['cantidadPedir']= this.cantidadPedir;
     this.carrito.push(this.productoSeleccionado);
-    console.log('pedidos en el carrito:', this.carrito);
+    // console.log('pedidos en el carrito:', this.carrito);
     localStorage.setItem("carrito",JSON.stringify(this.carrito));
     this.onSumarCarrito.emit(this.carrito.length)
   }

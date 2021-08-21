@@ -244,13 +244,13 @@ export class AppCustomerComponent implements OnInit{
     var element = <HTMLInputElement> document.getElementById("is3dCheckBox");
     var isChecked = element.checked;
     this.checkedButton = isChecked;
-    console.log(isChecked);
+    // console.log(isChecked);
   }
   enviarSolicitud(){
-    console.log(this.idUsuario);
+    // console.log(this.idUsuario);
     this.customerService.solicitudMotorista(this.idUsuario).subscribe(
       res=>{
-        console.log(res);
+        // console.log(res);
         this.modalService.dismissAll();
       },
       error=>{
@@ -262,7 +262,7 @@ export class AppCustomerComponent implements OnInit{
   /// para el carrito
 
   sumarCarrito(e:any){
-    console.log('se ejecuto el evento', e)
+    // console.log('se ejecuto el evento', e)
     this.footernavComponent.setCantidadCarrito(e);
   }
 
