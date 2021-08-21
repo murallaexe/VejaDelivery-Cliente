@@ -50,7 +50,7 @@
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button type="button" class="btn" id="AddCart" (click)='infoProductoSeleccionado(producto)'>Agregar Carrito</button>
+                                            <button type="button" class="btn" id="AddCart" (click)='infoProductoSeleccionado(producto,Compania.nombreEmpresa)'>Agregar Carrito</button>
                                         </div>
                                         <div class="col-6">
                                             <button type="button" class="btn" id="AddCart" (click)='ordenarYa(producto._id,producto)'>Realizar orden</button>
@@ -256,7 +256,7 @@
     </div>
     <div class="modal-body">
         <label for="" class="pb-2"><h6>Cantidad de producto a pedir</h6></label>
-        <input type="text" class="form-control" [(ngModel)]="cantidadPedir">
+        <input type="number" class="form-control" [(ngModel)]="cantidadPedir">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="agregarCarrito()">agregar</button>

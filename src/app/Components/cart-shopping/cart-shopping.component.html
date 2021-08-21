@@ -1,1 +1,134 @@
-<p>cart-shopping works!</p>
+
+<div *ngIf="ocultardatas">
+    <div class="container">
+        <div class="row" >
+            <div class="col-12">
+                <h1 class="titles"><strong>Carrito de Compras</strong></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="titles"><strong>Informacion Personal</strong></h3>
+                    </div>
+                    <div class="col-12">
+                        <form action="">
+                            <div>
+                                <label for=""> Nombre Completo</label>
+                                <input (change)="cambiosdeValid()" [(ngModel)]="nombre" disabled name="nombre" type="text" class="form-control">
+                                <br>
+                                <label for=""> Numero Telefono</label>
+                                <input (change)="cambiosdeValid()" [(ngModel)]="numeroTel" name="numeroTel" type="text" class="form-control">
+                                <br>
+                                <label for=""> Descripcion del pedido</label>
+                                <input (change)="cambiosdeValid()" [(ngModel)]="description" name="description" type="text" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="titles"><strong>Ubicacion</strong></h3>
+                    </div>
+                    <div class="col-12">
+                        <form action="">
+                            <div>
+                                <label for=""> Direccion para la entrega</label>
+                                <input type="text" (change)="cambiosdeValid()" [(ngModel)]="direccion" name="direccion" class="form-control">
+                                <br>
+                                <div>
+                                    <button type="button" class="btn btn-pedido txt-w">GPS</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="titles"><strong>Informacion Pedido Productos</strong></h3>
+                    </div>
+                    <div class="col-12">
+                        <form action="">
+                            <div>
+                                <div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let car of carritoArray, let indice = index ">
+                                                <th scope="row">{{car.marcaProducto}} / {{car.nombreProducto}}</th>
+                                                <td>{{car.cantidadPedir}}</td>
+                                                <td>{{car.precio}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <div>
+                                    <div class="form-check">
+                                        <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+                                        <!-- <label class="form-check-label" for="flexCheckDefault">
+                                            ¿Cuenta con otro pedido con nosotros?
+                                        </label> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="titles"><strong>Tiempo de Envio</strong></h3>
+                    </div>
+                    <div class="col-12">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-3"><button type="button" class="btn btn-pedido txt-w">Inmediata</button></div>
+                                <!-- <div class="col-9"><button type="button" class="btn btn-pedido txt-w">Programada</button></div> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="titles"><strong>Forma de Pago</strong></h3>
+                    </div>
+                    <div class="col-12">
+                        <form action="">
+                            <label for="">Elija una forma de pago</label>
+                            <select name="metodoPago" [(ngModel)]="metodoPago" (click)="ValidButton('metodo1');cambiosdeValid()" id="" class="form-control">
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Tarjeta">Tarjeta de Credito</option>
+                            </select>
+                            <div *ngIf="ocultarTarjeta" class="col-12">
+                                <label class="col-12">Seleccione su tarjeta.</label>
+                                <select class="form-control col-8" [(ngModel)]="numeroTarjeta" (click)="cambiosdeValid()" name="numeroTarjeta" >
+                                    <option *ngFor="let tarjeta of tarjetasArray"  value="{{tarjeta.numeroTarjeta}}">{{tarjeta.nombreTarjeta}} / {{tarjeta.numeroTarjeta}}</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 pt-4">
+                <button type="button" (click)="guardarPedido()" [disabled]="buttonValid==false" class="btn btn-compra txt-w"><strong>Realizar Compra</strong></button>
+            </div>
+        </div>
+    </div>
+</div>

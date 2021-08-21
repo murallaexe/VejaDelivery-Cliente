@@ -426,8 +426,9 @@ export class ProductCompanyComponent implements OnInit {
 
   /// codigo para el carrito de compras
 
-  infoProductoSeleccionado(producto:any){
+  infoProductoSeleccionado(producto:any,nombreEmpres:any){
     this.productoSeleccionado = producto;
+    this.productoSeleccionado['nombreEmpresa']= nombreEmpres;
     this.modalServices.open(this.modalCantidadProducto)
     console.log({"producto:":this.productoSeleccionado})
   }
@@ -437,7 +438,8 @@ export class ProductCompanyComponent implements OnInit {
     this.modalServices.dismissAll();
     this.productoSeleccionado['cantidadPedir']= this.cantidadPedir;
     this.carrito.push(this.productoSeleccionado);
-    console.log('pedidos en el carrito:', this.carrito)
+    console.log('pedidos en el carrito:', this.carrito);
+    localStorage.setItem("carrito",JSON.stringify(this.carrito));
     this.onSumarCarrito.emit(this.carrito.length)
   }
 

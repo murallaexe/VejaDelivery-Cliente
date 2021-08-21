@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FooternavComponent } from '../Components/footernav/footernav.component';
 import { CarritoComponent } from '../Components/carrito/carrito.component';
+import { CartShoppingComponent } from '../Components/cart-shopping/cart-shopping.component';
 
 @Component({
   selector: 'app-app-customer',
@@ -29,6 +30,8 @@ export class AppCustomerComponent implements OnInit{
   @ViewChild("company") public companyComponent !: CompanyComponent;
   @ViewChild('category') categoryComponent!:CategoryComponent;
   @ViewChild('footer') footernavComponent!:FooternavComponent;
+  @ViewChild('cart') cartShoppingComponent!:CartShoppingComponent;
+  
 
   // mapa!:Mapboxgl.Map;
 
@@ -143,6 +146,7 @@ export class AppCustomerComponent implements OnInit{
       this.registerComponent.ocultardatas=false;
       this.myPerfilComponent.ocultardatas=false;
       this.productCompany.ocultardatas=false;
+      this.cartShoppingComponent.ocultardatas=false;
     }
     if(evento.url=="Company"){
       //console.log("url y idUsuario Appcustomer", evento.url,this.idUsuario);
@@ -151,12 +155,14 @@ export class AppCustomerComponent implements OnInit{
       this.productCompany.ocultardatas=false;
       this.registerComponent.ocultardatas=false;
       this.myPerfilComponent.ocultardatas=false;
+      this.cartShoppingComponent.ocultardatas=false;
     }
     if(evento.url=="Companys"){
       this.categoryComponent.ocultardatas=true;
       this.companyComponent.ocultardatas=false;
       this.productCompany.ocultardatas=false;
       this.registerComponent.ocultardatas=false;
+      this.cartShoppingComponent.ocultardatas=false;
     }
     if(this.stadeComponents=="productCompany"){
       //console.log("entro a customer", evento);
@@ -164,6 +170,7 @@ export class AppCustomerComponent implements OnInit{
       this.companyComponent.ocultarData(false);
       this.registerComponent.ocultardatas=false;
       this.myPerfilComponent.ocultardatas=false;
+      this.cartShoppingComponent.ocultardatas=false;
     };
     if(evento.url=="MyPerfil"){
       //console.log("Estado del los componentes", evento.url,this.idUsuario);
@@ -173,6 +180,7 @@ export class AppCustomerComponent implements OnInit{
       this.myPerfilComponent.ocultardatas=true;
       this.myPerfilComponent.informacionUser(this.idUsuario);
       this.registerComponent.ocultardatas=false;
+      this.cartShoppingComponent.ocultardatas=false;
     }
     if(this.stadeComponents=="RegisterCompras"||this.stadeComponents=="RegisterList"){
       // console.log("entro a customer", evento.url);
@@ -181,10 +189,21 @@ export class AppCustomerComponent implements OnInit{
       this.productCompany.ocultardatas=false;
       this.myPerfilComponent.ocultardatas=false;
       this.registerComponent.selectRegiterFather(evento.url,true,this.idUsuario);
+      this.cartShoppingComponent.ocultardatas=false;
     };
     if(evento.url=="gps"){
       //console.log("Estado del los componentes", evento.url,this.idUsuario);
       this.mapaBox=evento.data;
+    }
+    if(evento.url=="cartShopping"){
+      //console.log("url y idUsuario Appcustomer", evento.url,this.idUsuario);
+      this.companyComponent.ocultardatas=false;
+      this.categoryComponent.ocultardatas=false;
+      this.registerComponent.ocultardatas=false;
+      this.myPerfilComponent.ocultardatas=false;
+      this.productCompany.ocultardatas=false;
+      this.cartShoppingComponent.ocultardatas=true;
+      this.cartShoppingComponent.ObtenerData(this.idUsuario);
     }
   }
   recibirUsuarioLogin(data:any){
