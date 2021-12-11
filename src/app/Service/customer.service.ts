@@ -9,7 +9,7 @@ export class CustomerService {
 
   constructor(private httpClient : HttpClient) { }
   guardarUsario(informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/usuarios/`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/usuarios/`,{
       nombreUsuario: informacion.nombreUsuario,
       emailUsuario:informacion.emailUsuario,
       passwordUsuario:informacion.passwordUsuario,
@@ -24,10 +24,10 @@ export class CustomerService {
     })
   }
   obtenerInformacionUnUsuario(idUsuario:any):Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/usuarios/${idUsuario}`,{});
+    return this.httpClient.get(`vejadelivery.herokuapp.com/usuarios/${idUsuario}`,{});
   }
   CambiosInfoUsuario(idUsuario:any,informacion:any):Observable<any>{
-    return this.httpClient.put(`http://localhost:8888/usuarios/${idUsuario}`,{
+    return this.httpClient.put(`vejadelivery.herokuapp.com/usuarios/${idUsuario}`,{
       nombreUsuario:informacion.nombreUsuario,
       emailUsuario:informacion.emailUsuario,
       passwordUsuario:informacion.passwordUsuario,
@@ -41,19 +41,19 @@ export class CustomerService {
     })
   }
   guardarTarjetaCredito(idUsuario:any,informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/usuarios/${idUsuario}/tarjetaCredito`,{
-      nombreTarjeta : informacion.nombreTarjeta, 
-      numeroTarjeta : informacion.numeroTarjeta, 
-      vencimiento : informacion.vencimiento, 
-      codigoSeguridad : informacion.codigoSeguridad, 
+    return this.httpClient.post(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/tarjetaCredito`,{
+      nombreTarjeta : informacion.nombreTarjeta,
+      numeroTarjeta : informacion.numeroTarjeta,
+      vencimiento : informacion.vencimiento,
+      codigoSeguridad : informacion.codigoSeguridad,
     })
   }
   eliminarTarjetaCredito(idUsuario:any,idTarjeta:any):Observable<any>{
-    return this.httpClient.delete(`http://localhost:8888/usuarios/${idUsuario}/tarjetaCredito/${idTarjeta}`,{})
+    return this.httpClient.delete(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/tarjetaCredito/${idTarjeta}`,{})
   }
-  
+
   guardarOrden(idUsuario:any,informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/usuarios/${idUsuario}/ordenes`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/ordenes`,{
       idOrden:informacion.idOrden,
       empresa:informacion.empresa,
       producto:informacion.producto,
@@ -66,10 +66,10 @@ export class CustomerService {
     })
   }
   obtenerRegistro(idUsuario:any):Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/usuarios/${idUsuario}/registro`,{});
+    return this.httpClient.get(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/registro`,{});
   }
   solicitudMotorista(idUsuario:any):Observable<any>{
-    return this.httpClient.put(`http://localhost:8888/usuarios/${idUsuario}/estadoMotorista`,{
+    return this.httpClient.put(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/estadoMotorista`,{
     })
   }
 }

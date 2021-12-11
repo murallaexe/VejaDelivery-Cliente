@@ -31,7 +31,7 @@ export class AppCustomerComponent implements OnInit{
   @ViewChild('category') categoryComponent!:CategoryComponent;
   @ViewChild('footer') footernavComponent!:FooternavComponent;
   @ViewChild('cart') cartShoppingComponent!:CartShoppingComponent;
-  
+
 
   // mapa!:Mapboxgl.Map;
 
@@ -76,7 +76,7 @@ export class AppCustomerComponent implements OnInit{
     //console.log("usuario Login:" , this.usuarioLogin);
     var tokens = localStorage.getItem('token');
 
-    
+
     var token = {"token":tokens};
     this.tokenss = tokens;
     //console.log(token)
@@ -92,7 +92,7 @@ export class AppCustomerComponent implements OnInit{
         this.productCompany.idUsuario=res.authData.data._id;
         this.ocultarSolicitudDiv=res.authData.data.solicitud;
         if(res.authData.data.tipoUsuario=="administrador"){
-          location.href= ('http://localhost:4203/');
+          location.href= ('vejadelivery.herokuapp.com/');
         };
         if(res.authData.data.tipoUsuario=="motorista"){
           this.ocultarMotorista=true;
@@ -109,7 +109,7 @@ export class AppCustomerComponent implements OnInit{
     );
     //this.companyComponent.ocultardatas= false;
   }
-  
+
   crearMarcador(lng:number,lat:number){
     var marker = new Mapboxgl.Marker({
       draggable:true
@@ -130,7 +130,7 @@ export class AppCustomerComponent implements OnInit{
   //   console.log("id category cusmoter",data);
   //   this.companyComponent.recibirDataIdUsuario(data, true);
   // }
-  
+
 
 
 
@@ -216,18 +216,18 @@ export class AppCustomerComponent implements OnInit{
       this.headerComponent.retornarinformacionUsuario(data);
   }
   guardarCambios(){
-    
+
   }
   habilitarDivMotorista(){
     if(this.ocultarMotoristaDiv==false){
       this.ocultarMotoristaDiv=true;
-      
+
     }else{
       this.ocultarMotoristaDiv=false;
     }
   }
   irMotorista(){
-    location.href= ('http://localhost:4202/');
+    location.href= ('vejadelivery.herokuapp.com/');
     //window.location.href = 'http://localhost:4204/';
   }
   ModalSolicitarSerMoto(modal:any){

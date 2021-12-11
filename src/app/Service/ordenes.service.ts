@@ -9,7 +9,7 @@ export class OrdenesService {
 
   constructor(private httpClient:HttpClient) { }
   GuardarOrden(informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/ordenes`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/ordenes`,{
       idOrden:informacion.idOrden,
       empresa:informacion.empresa,
       producto:informacion.producto,
@@ -26,12 +26,12 @@ export class OrdenesService {
       direccioncliente:informacion.direccioncliente,
     });
   }
-  
+
 
 
 
   GuardarOrdenArray(informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/ordenes/Array`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/ordenes/Array`,{
       idOrden:informacion.idOrden,
       tipoEntrega:informacion.tipoEntrega,
       tiempoEntrega:informacion.tiempoEntrega,
@@ -42,24 +42,24 @@ export class OrdenesService {
       telefonCliente:informacion.telefonCliente,
       descripcionPedido:informacion.descripcionPedido,
       direccioncliente:informacion.direccioncliente,
-      
+
       precioProducto:informacion.precioProducto,
       cantidadProducto:informacion.cantidadProducto,
     });
   }
-  
+
   GuardarOrdenProductosArray(idOrden:any,informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/ordenes/${idOrden}/Array`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/ordenes/${idOrden}/Array`,{
       empresa:informacion.empresa,
       producto:informacion.producto,
       precioProducto:informacion.precioProducto,
       cantidadProducto:informacion.cantidadProducto,
-      
+
     });
   }
 
 
   ObtenerContador():Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/ordenes/count`,{}
+    return this.httpClient.get(`vejadelivery.herokuapp.com/ordenes/count`,{}
   )};
 }

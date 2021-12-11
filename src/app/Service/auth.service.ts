@@ -12,16 +12,16 @@ export class AuthService {
     private httpClient:HttpClient,
     private router:Router,
   ){}
-  
+
   login(informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/usuarios/login`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/usuarios/login`,{
       email: informacion.email,
       password: informacion.password
     })
   }
   authe(informacion:any):Observable<any>{
     // return informacion;
-    return this.httpClient.post(`http://localhost:8888/usuarios/posts`,{
+    return this.httpClient.post(`vejadelivery.herokuapp.com/usuarios/posts`,{
       Authorization: informacion.token
     })
   }

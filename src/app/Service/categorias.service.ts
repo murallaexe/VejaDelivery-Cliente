@@ -10,15 +10,15 @@ export class CategoriasService {
 
   constructor(private httpClient:HttpClient) { }
   ObtenerCategorias():Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/categorias`,{});
+    return this.httpClient.get(`vejadelivery.herokuapp.com/categorias`,{});
   }
   ObtenerOneCategorias(IdCAtegorias:any):Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/categorias/${IdCAtegorias}`,{});
+    return this.httpClient.get(`vejadelivery.herokuapp.com/categorias/${IdCAtegorias}`,{});
   }
   obtenercompania(IdCAtegorias:any,IdCompania:any):Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/categorias/${IdCAtegorias}/productos/${IdCompania}`,{});
+    return this.httpClient.get(`vejadelivery.herokuapp.com/categorias/${IdCAtegorias}/productos/${IdCompania}`,{});
   }
   obtenerDataOrden(IdCategorias:any,IdCompania:any):Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/categorias/${IdCategorias}/comercio/${IdCompania}/producto/`,{});
+    return this.httpClient.get(`vejadelivery.herokuapp.com/categorias/${IdCategorias}/comercio/${IdCompania}/producto/`,{});
   }
 }
