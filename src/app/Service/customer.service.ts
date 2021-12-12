@@ -66,10 +66,10 @@ export class CustomerService {
     })
   }
   obtenerRegistro(idUsuario:any):Observable<any>{
-    return this.httpClient.get(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/registro`,{});
+    return this.httpClient.get(`https://vejadelivery.herokuapp.com/usuarios/${idUsuario}/registro`,{});
   }
   solicitudMotorista(idUsuario:any):Observable<any>{
-    return this.httpClient.put(`vejadelivery.herokuapp.com/usuarios/${idUsuario}/estadoMotorista`,{
+    return this.httpClient.put(`https://vejadelivery.herokuapp.com/usuarios/${idUsuario}/estadoMotorista`,{
     })
   }
 }
