@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           this.onUsuarios.emit(res.data);
           // this.onUsuario.emit(this.validUsuario);
           localStorage.setItem('token',res);
-          this.router.navigate(['VejaDelivery/AppCustomer']);
+          this.router.navigate(['https://ncrtrucking.com/VejaDelivery/AppCustomer']);
         }
       },
       error=>{

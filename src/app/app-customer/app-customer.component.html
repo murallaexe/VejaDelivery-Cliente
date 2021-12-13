@@ -42,7 +42,7 @@
                             </form>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
         <!-- Header-->
         <app-header #header (OnOcultarBarra)="ocultarBarraleft($event)"></app-header>
         <!-- /#header -->
-        
+
         <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
@@ -91,7 +91,7 @@
             <h1>Hola {{NombreUsuarioBienvenida}}!</h1>
         </div>
         <!-- Content -->
-            
+
         <!-- para categorias-->
             <app-category #category (onSelectCategory)="estadoComponentVisual($event)"></app-category>
         <!-- /. categorias-->
@@ -99,12 +99,12 @@
             <app-company #company (onSelectCompany)="estadoComponentVisual($event)"></app-company>
         <!-- /. compania-->
         <!-- para ordenar y comprar productos-->
-            <app-product-company 
-                #Product 
+            <app-product-company
+                #Product
                 (onProductoSelection)="estadoComponentVisual($event)"
                 (onSumarCarrito)="sumarCarrito($event)"
                 (onVerCarritoCompras)="verCarritoCompras($event)"
-            
+
             ></app-product-company>
         <!-- /. ordenar y comprar productos-->
             <app-register #regiter ></app-register>
@@ -116,7 +116,7 @@
         <!-- <app-carrito></app-carrito> -->
         <app-cart-shopping
             #cart
-            
+
         ></app-cart-shopping>
         <app-footernav
             #footer
@@ -137,7 +137,7 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="is3dCheckBox" (click)="cambioChecked()">
             <label class="form-check-label" for="flexCheckDefault">
-                Aceptar términos y condiciones 
+                Aceptar términos y condiciones
             </label>
           </div>
     </div>

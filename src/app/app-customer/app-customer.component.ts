@@ -92,7 +92,7 @@ export class AppCustomerComponent implements OnInit{
         this.productCompany.idUsuario=res.authData.data._id;
         this.ocultarSolicitudDiv=res.authData.data.solicitud;
         if(res.authData.data.tipoUsuario=="administrador"){
-          location.href= ('https://vejadelivery.herokuapp.com/');
+          location.href= ('https://vejadelivery.herokuapp.com/admin');
         };
         if(res.authData.data.tipoUsuario=="motorista"){
           this.ocultarMotorista=true;
@@ -227,7 +227,7 @@ export class AppCustomerComponent implements OnInit{
     }
   }
   irMotorista(){
-    location.href= ('https://vejadelivery.herokuapp.com/');
+    location.href= ('https://vejadelivery.herokuapp.com/motorista');
     //window.location.href = 'http://localhost:4204/';
   }
   ModalSolicitarSerMoto(modal:any){
