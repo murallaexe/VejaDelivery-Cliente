@@ -18,10 +18,10 @@ export class SingINComponent implements OnInit {
     password2:new FormControl('',[Validators.required]),
     descripcion:new FormControl('',[Validators.required])
   });
-  backendHost:string = 'http://localhost:8888';
+  backendHost:string = 'https://vejadelivery.herokuapp.com/';
   validarButton:boolean= false;
   validarPassword:boolean= false;
-  constructor( 
+  constructor(
     private httpClient:HttpClient,
     private customerService:CustomerService,
     private router:Router,
