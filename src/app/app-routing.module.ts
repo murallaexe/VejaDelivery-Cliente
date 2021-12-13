@@ -12,10 +12,10 @@ import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
     { path: '', component: LandigPageComponent},
-    { path: 'VejaDelivery', component: LandigPageComponent,pathMatch:'full'},
-    { path: 'VejaDelivery/Login', component: LoginComponent},
-    { path: 'VejaDelivery/SingIn', component: SingINComponent},
-    { path: 'VejaDelivery/AppCustomer', component: AppCustomerComponent,canActivate:[AuthGuard]},
+    { path: 'https://ncrtrucking.com/VejaDelivery', component: LandigPageComponent,pathMatch:'full'},
+    { path: 'https://ncrtrucking.com/VejaDelivery/Login', component: LoginComponent},
+    { path: 'https://ncrtrucking.com/VejaDelivery/SingIn', component: SingINComponent},
+    { path: 'https://ncrtrucking.com/VejaDelivery/AppCustomer', component: AppCustomerComponent,canActivate:[AuthGuard]},
     { path: '**', component: NotFoundComponent }
 ]; // sets up routes constant where you define your routes
 
